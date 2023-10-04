@@ -22,8 +22,11 @@ public class RettangoloTest {
         area = rettangolo.area();
         perimetro = rettangolo.perimetro();
         
+        System.out.println("la base del rettangolo è  : " + rettangolo.base);
+        System.out.println("l'altezza del rettangolo è: " + rettangolo.altezza);
         System.out.println("l'area è: " + area);
         System.out.println("il perimetro è: " + perimetro);
+        
         
     }
     
