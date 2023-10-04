@@ -1,4 +1,3 @@
-
 package figureGeometriche;
 
 import java.util.Scanner;
