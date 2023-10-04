@@ -1,5 +1,5 @@
 package figureGeometriche;
-
+ //bella li
 public class Cerchio {
     public float raggio;
     
@@ -13,7 +13,7 @@ public class Cerchio {
         return  area;
     }
     
-    public float perimetro(){
+    public float perimetro(){ // funzione perimetro
         float perimetro;
         perimetro = 3.14f * (raggio * 2);
         return perimetro;
