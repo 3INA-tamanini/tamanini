@@ -7,19 +7,21 @@ public class RettangoloTest {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        
         float base;
         float altezza;
         float area;
         float perimetro;
         
         System.out.print("inserisci la base  : ");
-        base = in.nextFloat();
+        base      = in.nextFloat();
+        
         System.out.print("inserisci l'altezza: ");
-        altezza = in.nextFloat();
+        altezza   = in.nextFloat();
         
         Rettangolo rettangolo = new Rettangolo(base, altezza);
         
-        area = rettangolo.area();
+        area      = rettangolo.area();
         perimetro = rettangolo.perimetro();
         
         System.out.println("la base del rettangolo è  : " + rettangolo.base);
