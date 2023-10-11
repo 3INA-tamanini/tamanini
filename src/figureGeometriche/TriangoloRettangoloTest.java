@@ -9,13 +9,13 @@ public class TriangoloRettangoloTest {
         Scanner in = new Scanner(System.in);
         double lato, base, altezza, area, perimetro;
         
-        System.out.println("inserisci il lato  : ");
+        System.out.print("inserisci il lato  : ");
         lato = in.nextDouble();
         
-        System.out.println("inserisci la base  : ");
+        System.out.print("inserisci la base  : ");
         base = in.nextDouble();
         
-        System.out.println("inserisci l'altezza: ");
+        System.out.print("inserisci l'altezza: ");
         altezza = in.nextDouble();
         
         
