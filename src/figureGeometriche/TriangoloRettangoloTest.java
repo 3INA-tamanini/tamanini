@@ -21,6 +21,7 @@ public class TriangoloRettangoloTest {
         TriangoloRettangolo tr = new TriangoloRettangolo(lato, base, altezza);
         
         System.out.println("\n" + tr.info());
+        
         area = tr.area();
         perimetro = tr.perimetro();
         
