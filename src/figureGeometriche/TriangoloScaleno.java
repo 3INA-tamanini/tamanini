@@ -24,4 +24,4 @@ public class TriangoloScaleno {
         area = Math.sqrt(semiperimetro*(semiperimetro-lato1)*(semiperimetro-lato2)*(semiperimetro-lato3));
         return area;
     }
-} 
+}
