@@ -1,10 +1,18 @@
 package figureGeometriche;
  //bella li
 public class Cerchio {
-    public float raggio;
+    private float raggio;
     
     public Cerchio(float r){
         raggio = r;
+    }
+    
+    public float getRaggio(){
+        return raggio;
+    }
+    
+    public void setRaggio(float raggio){
+        this.raggio = raggio;
     }
     
     public float area(){

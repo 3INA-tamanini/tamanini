@@ -10,6 +10,24 @@ public class Rettangolo {
         altezza = h;
     }
     
+    
+    public float getBase(){
+        return base;
+    }
+    
+    public void setBase(float base){
+        this.base = base;
+    }
+    
+    public float getAltezza(){
+        return altezza;
+    }
+    
+    public void setaltezza(float altezza){
+        this.altezza = altezza;
+    }
+    
+    
     public float area(){
         float area;
         area = base * altezza;
