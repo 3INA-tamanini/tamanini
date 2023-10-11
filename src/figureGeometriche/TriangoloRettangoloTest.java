@@ -18,14 +18,14 @@ public class TriangoloRettangoloTest {
         System.out.print("inserisci l'altezza: ");
         altezza = in.nextDouble();
         
-        
         TriangoloRettangolo tr = new TriangoloRettangolo(lato, base, altezza);
         
+        System.out.println("\n" + tr.info());
         area = tr.area();
         perimetro = tr.perimetro();
         
         System.out.println("l'area è       :  " +  area);
-        System.out.println("il perimetro è:  " + perimetro);
+        System.out.println("il perimetro è :  " + perimetro);
         
     }
     
