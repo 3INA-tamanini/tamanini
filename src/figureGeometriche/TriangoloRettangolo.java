@@ -44,7 +44,7 @@ public class TriangoloRettangolo {
     
     public double perimetro(){
         double perimetro;
-        perimetro = lato*3;
+        perimetro = lato + base + altezza;
         return perimetro;
     }
     
