@@ -2,8 +2,8 @@ package figureGeometriche;
 
 
 public class Rettangolo {
-    public float base;
-    public float altezza;
+    private float base;
+    private float altezza;
     
     public Rettangolo(float b, float h){
         base = b;
@@ -38,6 +38,13 @@ public class Rettangolo {
         float perimetro;
         perimetro = (base + altezza)*2;
         return perimetro;
+    }
+
+    public String info(){
+        String testo;
+        testo = "base   : " + base   + "\n" +
+                "altezza: " + altezza;
+        return testo;
     }
     
 }
