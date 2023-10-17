@@ -49,4 +49,11 @@ public class TriangoloScaleno {
         area = Math.sqrt(semiperimetro*(semiperimetro-lato1)*(semiperimetro-lato2)*(semiperimetro-lato3));
         return area;
     }
+    public String info(){
+        String testo;
+        testo = "lato1   : " + lato1   + "\n" +
+                "lato2   : " + lato2   + "\n" + 
+                "lato3   : " + lato3   + "\n";
+        return testo;
+    }
 }
