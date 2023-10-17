@@ -26,6 +26,10 @@ public class Cerchio {
         perimetro = 3.14f * (raggio * 2);
         return perimetro;
     }
+
+    public String info(){
+        String testo = "il raggio è: " + raggio;
+    }
 }
 
     
