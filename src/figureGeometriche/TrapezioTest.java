@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class TrapezioTest {
   public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
     double base1, base2, altezza, lato, area, perimetro;
