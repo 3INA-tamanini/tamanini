@@ -9,16 +9,8 @@ public class Trapezio{
     this.altezza=altezza;
     this.lato=lato;
   }
-
-  public double area(){
-    double a = (base1+base2)*altezza/2;
-    return a;
-  }
-  public double perimetro(){
-    double p = base1+base2+(lato*2);
-    return p;
-  }
-
+  
+  
   public double getBase1(){
     return base1;
   }
@@ -47,6 +39,16 @@ public class Trapezio{
   }
   public void setLato(double lato){
     this.lato=lato;
+  }
+  
+  
+  public double area(){
+    double a = (base1+base2)*altezza/2;
+    return a;
+  }
+  public double perimetro(){
+    double p = base1+base2+(lato*2);
+    return p;
   }
   
   public String info(){
