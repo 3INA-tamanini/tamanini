@@ -48,4 +48,13 @@ public class Trapezio{
   public void setLato(double lato){
     this.lato=lato;
   }
+  
+  public String info(){
+        String testo;
+        testo = "base maggiore  : "  + base1  +"\n"  + 
+                "base minore    : "  + base2  + "\n" +
+                "altezza        : "  + altezza+ "\n" + 
+                "lato           : "  + lato   + "\n";
+        return testo;
+    }
 }
