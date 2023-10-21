@@ -10,6 +10,10 @@ public class Sottrazione {
         n2 = numero2;
     }
     
+    
+    /** 
+     * @return float
+     */
     public float esegui(){
         float sottrazione;
         sottrazione = n1-n2;
