@@ -29,6 +29,7 @@ public class Cerchio {
 
     public String info(){
         String testo = "il raggio è: " + raggio;
+        return testo;
     }
 }
 
