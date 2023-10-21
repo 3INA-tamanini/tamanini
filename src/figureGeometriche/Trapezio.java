@@ -1,3 +1,4 @@
+package figureGeometriche;
 public class Trapezio{
   private double base1,base2,altezza,lato;
 

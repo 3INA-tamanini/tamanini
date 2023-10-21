@@ -1,3 +1,4 @@
+package figureGeometriche;
 import java.util.Scanner;
 
 public class TrapezioTest {
