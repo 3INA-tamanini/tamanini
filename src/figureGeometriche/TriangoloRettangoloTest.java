@@ -4,7 +4,10 @@ import java.util.Scanner;
 
 public class TriangoloRettangoloTest {
 
-    
+    /**
+     * classe main del triangolo rettangolo
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         double lato, base, altezza, area, perimetro;
@@ -21,7 +24,7 @@ public class TriangoloRettangoloTest {
         TriangoloRettangolo tr = new TriangoloRettangolo(lato, base, altezza);
         System.out.println("dati di input: ");
         System.out.println("\n" + tr.info());
-        
+
         area = tr.area();
         perimetro = tr.perimetro();
         System.out.println("dati di output : ");

@@ -3,12 +3,18 @@ package figureGeometriche;
 import java.util.Scanner;
 
 public class CerchioTest {
-    
+    /**
+     * classe main del cerchio
+     * @param args
+     */
     public static void main(String[] args) {
+        
         Scanner in = new Scanner(System.in);
         float raggio;
         float area;
         float perimetro;
+
+        
         System.out.print("inserisci il raggio: ");
         raggio = in.nextFloat();
         

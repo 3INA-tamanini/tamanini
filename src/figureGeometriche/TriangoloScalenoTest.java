@@ -3,7 +3,10 @@ package figureGeometriche;
 import java.util.Scanner;
 
 public class TriangoloScalenoTest{
-
+/**
+ * classe main del triangolo scaleno
+ * @param args
+ */
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         

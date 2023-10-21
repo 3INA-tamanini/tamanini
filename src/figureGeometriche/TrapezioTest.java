@@ -2,6 +2,10 @@ package figureGeometriche;
 import java.util.Scanner;
 
 public class TrapezioTest {
+/**
+ * classe main del trapezio
+ * @param args
+ */
   public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
     double base1, base2, altezza, lato, area, perimetro;
