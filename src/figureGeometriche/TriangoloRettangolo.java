@@ -8,6 +8,7 @@ package figureGeometriche;
 public class TriangoloRettangolo {
     
     private double lato, base, altezza;
+
     
     /**
      * costruttore senza parametri <br>
@@ -24,6 +25,12 @@ public class TriangoloRettangolo {
      * @param lato
      * @param base
      * @param altezza 
+
+    /**
+     * metodo costruttore
+     * @param lato
+     * @param base
+     * @param altezza
      */
     public TriangoloRettangolo(double lato, double base, double altezza){
         this.lato = lato;
@@ -32,6 +39,7 @@ public class TriangoloRettangolo {
     }
     /**
      * restituisce il valore della base
+     * metodo get della base
      * @return base
      */
     public double getBase(){
@@ -40,6 +48,8 @@ public class TriangoloRettangolo {
     /**
      * imposta/modifica il valore della base
      * @param base base
+     * metodo set della base
+     * @param base
      */
     public void setBase(double base){
         this.base = base;
@@ -47,6 +57,8 @@ public class TriangoloRettangolo {
     /**
      * restituisce il valore dell'altezza
      * @return 
+     * metodo get dell'altezza
+     * @return altezza
      */
     public double getAltezza(){
         return altezza;
@@ -54,6 +66,8 @@ public class TriangoloRettangolo {
     /**
      * imposta/modifica il valore dell'altezza
      * @param altezza 
+     * metodo set dell'altezza
+     * @param altezza
      */
     public void setAltezza(double altezza){
         this.altezza = altezza;
@@ -61,6 +75,8 @@ public class TriangoloRettangolo {
     /**
      * restituisce il valore del lato
      * @return 
+     * metodo get del lato
+     * @return lato
      */
     public double getLato(){
         return lato;
@@ -68,6 +84,8 @@ public class TriangoloRettangolo {
     /**
      * imposta/modifica il valore del lato
      * @param lato 
+     * metodo set del lato
+     * @param lato
      */
     public void setLato(double lato){
         this.lato = lato;
@@ -76,6 +94,8 @@ public class TriangoloRettangolo {
     /**
      * restituisce il valore dell'area
      * @return 
+     * metodo per calcolare l'area
+     * @return area
      */
     public double area(){
         double area;
@@ -85,6 +105,9 @@ public class TriangoloRettangolo {
     /**
      * restutuisce il valore del perimetro
      * @return 
+     * metodo per calcolare il perimetro
+     * @return perimetro
+
      */
     public double perimetro(){
         double perimetro;
@@ -92,8 +115,11 @@ public class TriangoloRettangolo {
         return perimetro;
     }
     /**
+
      * restutuisce il valore degli attributi
      * @return 
+     * metodo per visualizzare gli attributi della classe
+     * @return testo
      */
     public String info(){
         String testo;

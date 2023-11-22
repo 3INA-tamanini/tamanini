@@ -4,7 +4,10 @@ import java.util.Scanner;
 
 public class RettangoloTest {
 
-
+/**
+ * classe main del rettangolo
+ * @param args
+ */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         

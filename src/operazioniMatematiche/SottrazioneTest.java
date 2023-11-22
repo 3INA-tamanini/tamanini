@@ -6,6 +6,10 @@ import java.util.Scanner;
 public class SottrazioneTest {
 
     
+    
+    /** 
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         float risultato;
