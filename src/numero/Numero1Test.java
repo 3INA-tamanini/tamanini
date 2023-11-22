@@ -15,6 +15,10 @@ public class Numero1Test {
         Numero1 n = new Numero1(n1);
         
         System.out.println("il numero è " + n.pariDispari() + " e " + n.magMinUg0());
+        
+        System.out.println(n.pNZ1());
+        
+        System.out.println(n.pNZ2());
     }
     
 }
