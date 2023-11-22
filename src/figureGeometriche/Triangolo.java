@@ -1,4 +1,8 @@
 // dati i lati di un triangolo, stabilire il tipo, perimetro e area
+/*dati tre segmenti qualsiasi (a,b,c) è possibile costruire un triangolo
+solo se la lunghezza di ciascuno è minore della somma degli altri due
+*/
+
 
 package figureGeometriche;
 
@@ -65,20 +69,24 @@ public class Triangolo {
     }
     
     public String  tipo(){
-        String tipo = "";
+        String tipo = "equilatero";
         
-        if(lato1==lato2 && lato1==lato3){
-            tipo = "equilatero";
-        }
-        
-        if(lato1!=lato2 && lato1!=lato3 && lato2 != lato3){
-            tipo = "scaleno";
-        }
-        
-        if ((lato1==lato2 && lato2!=lato3) ||(lato2==lato3 && lato2!=lato1) || (lato1==lato3 && lato1!=lato2)){
+        if((lato1==lato2 && lato2!=lato3) ||(lato2==lato3 && lato2!=lato1) || (lato1==lato3 && lato1!=lato2)){
             tipo = "isoscele";
+        }else{
+            if(lato1!=lato2 && lato1!=lato3 && lato2 != lato3){
+            tipo = "scaleno";
+            }
         }
         
         return tipo;
+    }
+    
+    public boolean isTriangolo(){
+        boolean v = true;
+        if(lato1>(lato2+lato3) || lato2>(lato1+lato3) || lato3>(lato1+lato2)){
+            v = false;
+        }
+        return v;
     }
 }
