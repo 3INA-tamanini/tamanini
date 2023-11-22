@@ -41,7 +41,7 @@ public class Numero1 {
         return testo;
     }
     
-    public String magMinUg(){
+    public String magMinUg0(){
         String testo;
         
         if (n1>0){
