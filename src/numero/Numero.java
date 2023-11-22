@@ -32,4 +32,5 @@ public class Numero{
     nMin=Math.min(n1,n2);
     return (nMax-nMin);
   }
+  
 }
