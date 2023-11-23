@@ -26,5 +26,7 @@ public class TriangoloTest {
         System.out.println(t.area());
         System.out.println(t.tipo());
         System.out.println(t.isTriangolo());
+
+        uwu;
     }
 }
