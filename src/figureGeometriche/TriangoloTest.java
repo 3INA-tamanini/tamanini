@@ -21,11 +21,23 @@ public class TriangoloTest {
         
         Triangolo t = new Triangolo(l1,l2,l3);
         
+        t.setUdm("cm");
+        
         System.out.println(t.info());
-        System.out.println(t.perimetro());
-        System.out.println(t.area());
+        System.out.println(t.perimetro() + " " + t.getUdm());
+        System.out.println(t.area() + " " + t.getUdm());
         System.out.println(t.tipo());
-        System.out.println(t.isTriangolo());
-
+        
+        if(t.isTriangolo()){
+            System.out.println("si");
+        }else{
+            System.out.println("no");
+        }
+        System.out.println(t.altezza() + " " + t.getUdm());
+        System.out.println(t.apotema());
+        
+        
+        // String testo;
+        // testo = t.isTriangolo()== true ? "si" : "no";
     }
 }

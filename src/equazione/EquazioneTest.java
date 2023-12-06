@@ -8,9 +8,9 @@ public class EquazioneTest {
         float a,b;
         Scanner in = new Scanner(System.in);
 
-        System.out.println("inserisci a: ");
+        System.out.print("inserisci a: ");
         a=in.nextFloat();
-        System.out.println("inserisci b: ");
+        System.out.print("inserisci b: ");
         b=in.nextFloat();
 
 

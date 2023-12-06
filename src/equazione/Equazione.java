@@ -30,7 +30,7 @@ public class Equazione{
         
         if(a>0){
             x = b/a;
-            testo="X = " + x;
+            testo = "X = " + x;
         }else if(a==0 && b==0){
             testo = "equazione indeterminata";
         }else if(a==0 && b!=0){
