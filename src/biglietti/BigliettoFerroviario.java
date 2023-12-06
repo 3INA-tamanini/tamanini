@@ -1,6 +1,7 @@
 package biglietti;
 
 
+
 public class BigliettoFerroviario {
     private float costo;
     private String condizione;
@@ -38,20 +39,44 @@ public class BigliettoFerroviario {
         return testo;
     }
     
-    public float costoTot(){
-        float costo;
+    private float sconto(){
+        float sconto; // sconto = 0;
         
         switch (condizione){
-            case "P":
-                costo = (this.costo * (10/100));
-            case "S":
-                costo = (this.costo * (15/100));
-            case "D":
-                costo = (this.costo * (25/100));
-            default: 
-                costo = this.costo;
+            case "P": case "p":
+                sconto = ((10 * costo)/100);
+                break;
+            case "S": case "s":
+                sconto = ((15 * costo)/100);
+                break;
+            case "D": case "d":
+                sconto = ((25 * costo)/100);
+                break;
+            default:
+                sconto = 0;
+                break;
         }
+           
+        // if(condizione == "P" || condizione == "p"){
+        //     sconto = ((10 * costo)/100);
+        // }
+
+        // if(condizione == "S" || condizione == "s"){
+        //     sconto = ((15 * costo)/100);
+        // }
+
+        // if(condizione == "D" || condizione == "d"){
+        //     sconto = ((25 * costo)/100);
+        // }
         
-        return costo;
+        return sconto;
     }
+
+
+    public float costoTot(){
+        float costoTot = this.costo-sconto();
+        return costoTot;
+    }
+
+    
 }
