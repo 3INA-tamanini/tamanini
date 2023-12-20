@@ -43,13 +43,16 @@ public class BigliettoFerroviario {
         float sconto; // sconto = 0;
         
         switch (condizione){
-            case "P": case "p":
+            case "P": 
+            case "p":
                 sconto = ((10 * costo)/100);
                 break;
-            case "S": case "s":
+            case "S": 
+            case "s":
                 sconto = ((15 * costo)/100);
                 break;
-            case "D": case "d":
+            case "D": 
+            case "d":
                 sconto = ((25 * costo)/100);
                 break;
             default:
