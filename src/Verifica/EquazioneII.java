@@ -59,7 +59,7 @@ public class EquazioneII {
         double x1;
         if (d()>=0){
             if (d()>0){
-                x1 = (-b + Math.sqrt(d()))/(2*a);
+                x1 = (-b - Math.sqrt(d()))/(2*a);
             }else{
                 x1 = -b/(2*a);
             }
