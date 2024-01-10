@@ -84,4 +84,16 @@ public class Numero1 {
         
         return testo;
     }
+    
+    public String pNZ3(){
+        String testo = "";
+        if (n1>0){
+            testo = "maggiore di 0";
+        }else if (n1<0){
+            testo = "minore di 0";
+        }else if (n1==0){
+            testo = "uguale a 0";
+        }
+        return testo;
+    }
 }
