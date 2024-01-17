@@ -61,6 +61,11 @@ public class Poligono {
         return t;
     }
     
+    public String info(){
+        String testo = "numero lati: " + n + "\n"+ 
+                       "lato: " + l;
+        return testo;
+    }
     public float perimetro(){
         float p;
         p = l*n;
