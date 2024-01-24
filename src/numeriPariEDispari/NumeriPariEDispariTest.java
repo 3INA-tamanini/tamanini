@@ -8,8 +8,9 @@ public class NumeriPariEDispariTest {
         Scanner in = new Scanner(System.in);
         int scelta, n;
         NumeriPariEDispari pd = null;
-        while (true) {
-            System.out.println("1 - istanziare l'oggetto (obbligatorio)");
+        boolean istanziato = false;
+        do {
+            System.out.println("1 - istanziare l'oggetto");
             System.out.println("2 - crea una stringa con i primi n numeri dispari");
             System.out.println("3 - crea una stringa con i primi n numeri pari");
             System.out.println("4 - esci");
@@ -20,24 +21,30 @@ public class NumeriPariEDispariTest {
                 case 1:
                     pd = new NumeriPariEDispari();
                     System.out.println("oggetto istanziato");
+                    istanziato = true;
                     break;
                 case 2:
-                    System.out.println("inserisci un numero: ");
-                    n = in.nextInt();
-                    System.out.println(pd.primiNumeriDispari(n));
+                    if (istanziato) {
+                        System.out.print("inserisci un numero: ");
+                        n = in.nextInt();
+                        System.out.println(pd.primiNumeriPari1(n));
+                    } else {
+                        System.out.println("inserisci prima l'opzione 1");
+                    }
                     break;
                 case 3:
-                    System.out.println("inserisci un numero: ");
-                    n = in.nextInt();
-                    System.out.println(pd.primiNumeriPari(n));
-                    break;
-                case 4:
+                    if (istanziato == true) {
+                        System.out.print("inserisci un numero: ");
+                        n = in.nextInt();
+                        System.out.println(pd.primiNumeriDispari1(n));
+                    } else {
+                        System.out.println("inserisci prima l'opzione 1");
+                    }
                     break;
                 default:
                     System.out.println("opzione inesistente, riprovare");
                     break;
             }
-        }
-
+        } while (scelta != 4);
     }
 }

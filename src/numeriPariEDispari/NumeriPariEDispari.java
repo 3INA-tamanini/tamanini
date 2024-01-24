@@ -7,15 +7,13 @@ package numeriPariEDispari;
 
 public class NumeriPariEDispari {
 
-    public NumeriPariEDispari() {
-
-    }
+    
 
     public String primiNumeriDispari(int n) {
         String testo = "";
         for (int i = 0; i < n; i++) {
             if (i % 2 == 1) {
-                testo = testo + i + ", ";
+                testo = testo + i + "\n ";
             }
         }
         return testo;
@@ -26,10 +24,33 @@ public class NumeriPariEDispari {
         int i = 0;
         while (i < n) {
             if (i % 2 == 0) {
-                testo = testo + i + ", ";
+                testo = testo + i + "\n ";
             }
             i++;
         }
         return testo;
+    }
+
+    public static String primiNumeriDispari1(int n) {
+        String testo = "";
+        int ris = 1;
+        for (int i = 0; i < n; i++) {
+            testo += ris + "\n";
+            ris += 2;
+        }
+        return testo;
+    }
+    
+    public static String primiNumeriPari1(int n) {
+        String testo = "";
+        int ris = 0;
+        int i = 1;
+        while (i <= n) {
+            testo += ris + "\n";
+            ris += 2;
+            i++;
+        }
+        return testo;
+
     }
 }
