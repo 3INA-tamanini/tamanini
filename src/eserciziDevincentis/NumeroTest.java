@@ -12,7 +12,7 @@ public class NumeroTest {
 
         Numero number = new Numero(n);
         
-        System.out.println(number.tabellina());
+        System.out.println(number.fattoriale());
     }
 
 }
