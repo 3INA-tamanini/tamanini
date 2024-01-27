@@ -1,24 +1,7 @@
 package eserciziDevincentis;
 
 public class Numero {
-    private int num;
-
-    public Numero() {
-    }
-
-    public Numero(int num) {
-        this.num = num;
-    }
-
-    public int getNum() {
-        return num;
-    }
-
-    public void setNum(int num) {
-        this.num = num;
-    }
-
-    public String tabellina() {
+    public String tabellina(int num) {
         int risultato;
         String str = "";
         int i = 1;
@@ -31,7 +14,7 @@ public class Numero {
         return str;
     }
 
-    public String numeroCifre() {
+    public String numeroCifre(int num) {
         int i = 0;
         String testo = "";
         if (num == 0) {
@@ -46,12 +29,24 @@ public class Numero {
         return testo;
     }
 
-    public int fattoriale() {
+    public int fattoriale(int num) {
         int fattoriale = num;
         for (int i = 1; i < num; i++) {
             fattoriale *= i;
         }
         return fattoriale;
+    }
+
+    public String tavPitagorica() {
+        String testo = "";
+        for (int i = 1; i <= 10; i++) {
+            for (int j = 1; j <= 10; j++) {
+                testo += (i * j) + "\t";
+            }
+            testo += "\n";
+
+        }
+        return testo;
     }
 
 }
