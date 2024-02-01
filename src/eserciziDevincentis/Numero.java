@@ -49,4 +49,18 @@ public class Numero {
         return testo;
     }
 
+    public String indovinaNumero(int numInserito, int numCorretto){
+		String testo = "";
+		int numeroCorretto = numCorretto;
+		if(numInserito == numeroCorretto){
+			testo = "corretto";
+        }else{
+            if(numInserito<numeroCorretto)
+                testo = "sbagliato" + "\n" + "più alto";
+            else if(numInserito>numeroCorretto && numInserito<11)
+                testo = "sbagliato" + "\n" + "più basso";
+        }
+		return testo;
+	}
+
 }
