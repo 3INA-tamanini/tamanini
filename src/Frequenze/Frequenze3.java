@@ -1,8 +1,9 @@
 package Frequenze;
+
 import java.util.Random;
+
 public class Frequenze3 {
 
-    private final int NUMERI = 9;
     private int totNumeri;
 
     public Frequenze3(int totNumeri) {
@@ -16,6 +17,16 @@ public class Frequenze3 {
     public void setTotNumeri(int totNumeri) {
         this.totNumeri = totNumeri;
     }
+
+    private float frequenzaRelativa(int n){
+        float frequenzaRelativa = (float) n/totNumeri;
+        return frequenzaRelativa;
+    }
+
+    private float frequenzaPercentuale(int n){
+        return frequenzaRelativa(n)*100;
+    }
+
 
     public String frequenze() {
         String testo = "";
@@ -31,8 +42,8 @@ public class Frequenze3 {
         int n;
         Random r = new Random();
         for (int i = 0; i < totNumeri; i++) {
-            n = r.nextInt(9)+1;
-            switch(n){
+            n = r.nextInt(9) + 1;
+            switch (n) {
                 case 1:
                     n1++;
                     break;
@@ -59,19 +70,63 @@ public class Frequenze3 {
                     break;
                 case 9:
                     n9++;
-                    break;       
+                    break;
             }
         }
-        testo = "1 " + n1 + "\n" +
-                "2 " + n2 + "\n" +
-                "3 " + n3 + "\n" +
-                "4 " + n4 + "\n" +
-                "5 " + n5 + "\n" +
-                "6 " + n6 + "\n" +
-                "7 " + n7 + "\n" +
-                "8 " + n8 + "\n" +
-                "9 " + n9 + "\n";
+
+
         
+
+        testo = String.format("Frequenze assolute%n" +
+                      "1: %d %n" +
+                      "2: %d %n" +
+                      "3: %d %n" +
+                      "4: %d %n" +
+                      "5: %d %n" +
+                      "6: %d %n" +
+                      "7: %d %n" +
+                      "8: %d %n" +
+                      "9: %d %n %n" +
+                      "Frequenze relative %n" +
+                      "1: %.3f %n" +
+                      "2: %.3f %n" +
+                      "3: %.3f %n" +
+                      "4: %.3f %n" +
+                      "5: %.3f %n" +
+                      "6: %.3f %n" +
+                      "7: %.3f %n" +
+                      "8: %.3f %n" +
+                      "9: %.3f %n %n" +
+                      "Frequenze percentuali %n" +
+                      "1: %.2f %% %n" +
+                      "2: %.2f %% %n" +
+                      "3: %.2f %% %n" +
+                      "4: %.2f %% %n" +
+                      "5: %.2f %% %n" +
+                      "6: %.2f %% %n" +
+                      "7: %.2f %% %n" +
+                      "8: %.2f %% %n" +
+                      "9: %.2f %%",
+
+                      n1, n2, n3, n4, n5, n6, n7, n8, n9,
+
+                      frequenzaRelativa(n1), frequenzaRelativa(n2), frequenzaRelativa(n3),
+                      frequenzaRelativa(n4), frequenzaRelativa(n5), frequenzaRelativa(n6),
+                      frequenzaRelativa(n7), frequenzaRelativa(n8), frequenzaRelativa(n9),
+
+                      frequenzaPercentuale(n1), frequenzaPercentuale(n2), frequenzaPercentuale(n3),
+                      frequenzaPercentuale(n4), frequenzaPercentuale(n5), frequenzaPercentuale(n6),
+                      frequenzaPercentuale(n7), frequenzaPercentuale(n8), frequenzaPercentuale(n9));
+
+
+
         return testo;
+    }
+
+
+    public static void main(String[] args) {
+        Frequenze3 f = new Frequenze3(10000);
+
+        System.out.println(f.frequenze());
     }
 }
