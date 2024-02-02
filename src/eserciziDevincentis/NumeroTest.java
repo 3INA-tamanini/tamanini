@@ -51,6 +51,9 @@ public class NumeroTest {
                         }
                         System.out.println("Vuoi continuare?[1=si/0=no]");
                         continua = in.nextInt();
+                        if(continua == 1){
+                            numCorretto = r.nextInt(11);
+                        }
                     } while (continua == 1);
                     break;
                 case 6:
