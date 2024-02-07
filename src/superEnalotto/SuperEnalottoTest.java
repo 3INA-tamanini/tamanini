@@ -1,15 +1,16 @@
+package superEnalotto;
+
 import java.util.Scanner;
 
 public class SuperEnalottoTest {
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-
-        int n = 0;
-
-        SuperEnalotto s = new SuperEnalotto(n);
+        int n;
+        SuperEnalotto s = new SuperEnalotto();
 
         String testo = "";
-        String testoCorretto = s.superEnalotto();
+        String testoCorretto = s.superEnalottoNoNumeriRipetuti();
 
         for (int i = 0; i < 6; i++) {
             System.out.print("inserisci un numero: ");
@@ -20,9 +21,10 @@ public class SuperEnalottoTest {
         System.out.println("la tua combinazione: " + "\n" + testo);
         System.out.println("combinazione corretta: " + "\n" + testoCorretto);
 
-        if(testo.equals(testoCorretto))
+        if (testo.equals(testoCorretto)) {
             System.out.println("\nhai vinto!!");
-        else
+        } else {
             System.out.println("\nnon hai vinto" + "\nscarso");
+        }
     }
 }
