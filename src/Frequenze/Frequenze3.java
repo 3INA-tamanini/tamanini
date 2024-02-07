@@ -77,35 +77,35 @@ public class Frequenze3 {
 
         
 
-        testo = String.format("Frequenze assolute%n" +
-                      "1: %d %n" +
-                      "2: %d %n" +
-                      "3: %d %n" +
-                      "4: %d %n" +
-                      "5: %d %n" +
-                      "6: %d %n" +
-                      "7: %d %n" +
-                      "8: %d %n" +
-                      "9: %d %n %n" +
-                      "Frequenze relative %n" +
-                      "1: %.3f %n" +
-                      "2: %.3f %n" +
-                      "3: %.3f %n" +
-                      "4: %.3f %n" +
-                      "5: %.3f %n" +
-                      "6: %.3f %n" +
-                      "7: %.3f %n" +
-                      "8: %.3f %n" +
-                      "9: %.3f %n %n" +
-                      "Frequenze percentuali %n" +
-                      "1: %.2f %% %n" +
-                      "2: %.2f %% %n" +
-                      "3: %.2f %% %n" +
-                      "4: %.2f %% %n" +
-                      "5: %.2f %% %n" +
-                      "6: %.2f %% %n" +
-                      "7: %.2f %% %n" +
-                      "8: %.2f %% %n" +
+        testo = String.format("Frequenze assolute\n" +
+                      "1: %d \n" +
+                      "2: %d \n" +
+                      "3: %d \n" +
+                      "4: %d \n" +
+                      "5: %d \n" +
+                      "6: %d \n" +
+                      "7: %d \n" +
+                      "8: %d \n" +
+                      "9: %d \n \n" +
+                      "Frequenze relative \n" +
+                      "1: %.3f \n" +
+                      "2: %.3f \n" +
+                      "3: %.3f \n" +
+                      "4: %.3f \n" +
+                      "5: %.3f \n" +
+                      "6: %.3f \n" +
+                      "7: %.3f \n" +
+                      "8: %.3f \n" +
+                      "9: %.3f \n \n" +
+                      "Frequenze percentuali \n" +
+                      "1: %.2f %% \n" +
+                      "2: %.2f %% \n" +
+                      "3: %.2f %% \n" +
+                      "4: %.2f %% \n" +
+                      "5: %.2f %% \n" +
+                      "6: %.2f %% \n" +
+                      "7: %.2f %% \n" +
+                      "8: %.2f %% \n" +
                       "9: %.2f %%",
 
                       n1, n2, n3, n4, n5, n6, n7, n8, n9,
