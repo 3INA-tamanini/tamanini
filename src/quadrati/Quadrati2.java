@@ -1,10 +1,10 @@
 package quadrati;
 
-public class Quadrati {
+public class Quadrati2 {
 
     private int n;
 
-    public Quadrati(int n) {
+    public Quadrati2(int n) {
         this.n = n;
     }
 
@@ -21,11 +21,8 @@ public class Quadrati {
     public String quadrati() {
         String testo = "";
         if (isVero()) {
-            for (int i = 0; i <= 20; i++) {
-                if (i < n)
-                    testo = "";
-                else
-                    testo += i + " X " + i + "= " + (i * i) + "\n";
+            for (int i = 0; i <= n; i++) {
+                testo += i + " X " + i + "= " + (i * i) + "\n";
             }
 
         }else{

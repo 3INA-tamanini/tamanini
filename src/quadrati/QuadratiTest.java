@@ -8,7 +8,7 @@ public class QuadratiTest {
         System.out.print("inserisci il numero da 1 a 20: ");
         int n = in.nextInt();
 
-        Quadrati q = new Quadrati(n);
+        Quadrati2 q = new Quadrati2(n);
 
         System.out.println(q.quadrati());
     }
