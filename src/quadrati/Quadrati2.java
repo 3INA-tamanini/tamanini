@@ -8,13 +8,19 @@ public class Quadrati2 {
         this.n = n;
     }
 
+    public int getN() {
+        return n;
+    }
+
+    public void setN(int n) {
+        this.n = n;
+    }
+    
     private boolean isVero() {
-        boolean t;
+        boolean t = false;
         if (n >= 1 && n <= 20)
             t = true;
-        else
-            t = false;
-
+        
         return t;
     }
 
@@ -22,11 +28,10 @@ public class Quadrati2 {
         String testo = "";
         if (isVero()) {
             for (int i = 0; i <= n; i++) {
-                testo += i + " X " + i + "= " + (i * i) + "\n";
+                testo += i + " X " + i + " = " + (i * i) + "\n";
             }
-
         }else{
-            System.out.println("numero errato");
+            testo= "numero errato";
         }
         return testo;
     }
