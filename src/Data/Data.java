@@ -1,5 +1,6 @@
 package Data;
 
+
 public class Data {
 
     private static int g, m, a;
@@ -125,33 +126,35 @@ public class Data {
         }
         return valida;
     }
-    
-    public static int Ngiorni(int g2, int m2, int a2){
-        int ris = 0;
-        int cont = 0;
-        while(g!=g2 && m!=m2 && a!=a2){
-            if(isValida()){
-                g++;
-            }else if(m<12){
-                m++;
-                g = 1;
-            }else{
-                m = 1;
-                g = 1;
-                a++;
-            }
-        }
-        
-        return ris;
+
+    public static int nGiorni(int g2, int m2, int a2){
+      int ris = 0;
+			int cont = 0;
+			do{
+				ris++;
+				if(isGiorno()){
+					g++;
+				}else{
+					if(isMese()){
+						m++;
+					}else{
+						m=0;
+						a++;
+					}
+					g=0;
+				}
+			}while(!(g==g2 && m==m2 && a==a2));
+      return ris;
     }
 
     public static void main(String[] args) {
-        int g = 29;
-        int m = 2;
-        int a = 1000;
-        Data d = new Data(g, m, a);
+      int g = 29;
+      int m = 2;
+      int a = 2024;
+      Data d = new Data(g, m, a);
 
-        System.out.println(d.isValida());
-        System.out.println(d.info());
+      System.out.println(d.isValida());
+      System.out.println(d.info());
+      System.out.println(d.nGiorni(1,3,2024));
     }
 }
