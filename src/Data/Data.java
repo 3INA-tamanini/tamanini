@@ -1,6 +1,5 @@
 package Data;
 
-
 public class Data {
 
     private static int g, m, a;
@@ -52,6 +51,24 @@ public class Data {
             testo = g + "/";
             testo += "0" + m + "/";
             testo += a;
+        }
+        return testo;
+    }
+
+    public static String info2(int g2, int m2, int a2) {
+        String testo = "";
+        if (g2 < 10 && m2 < 10) {
+            testo = "0" + g2 + "/";
+            testo += "0" + m2 + "/";
+            testo += a2;
+        } else if (g2 < 10) {
+            testo = "0" + g2 + "/";
+            testo += m2 + "/";
+            testo += a2;
+        } else if (m2 < 10) {
+            testo = g2 + "/";
+            testo += "0" + m2 + "/";
+            testo += a2;
         }
         return testo;
     }
@@ -127,34 +144,27 @@ public class Data {
         return valida;
     }
 
-    public static int nGiorni(int g2, int m2, int a2){
-      int ris = 0;
-			int cont = 0;
-			do{
-				ris++;
-				if(isGiorno()){
-					g++;
-				}else{
-					if(isMese()){
-						m++;
-					}else{
-						m=0;
-						a++;
-					}
-					g=0;
-				}
-			}while(!(g==g2 && m==m2 && a==a2));
-      return ris;
+    public static int nGiorni(int g2, int m2, int a2) {
+        int ris = 0;
+
+        do {
+            if (g == g2 && m == m2 && a == a2) {
+                ris = 0;
+            }
+            if (isGiorno() == false) {
+                g = 1;
+                m++;
+                ris++;
+            } else {
+                ris++;
+                g++;
+            }
+            if (isMese() == false) {
+                m = 1;
+                a++;
+            }
+        } while (g != g2 || m != m2 || a != a2);
+        return ris;
     }
 
-    public static void main(String[] args) {
-      int g = 29;
-      int m = 2;
-      int a = 2024;
-      Data d = new Data(g, m, a);
-
-      System.out.println(d.isValida());
-      System.out.println(d.info());
-      System.out.println(d.nGiorni(1,3,2024));
-    }
 }
