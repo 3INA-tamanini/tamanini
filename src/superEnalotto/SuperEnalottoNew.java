@@ -11,8 +11,8 @@ public class SuperEnalottoNew {
         int[] n = new int[6];
         int ris;
         Random r = new Random();
-        for (int i = 0; i < 6; i++) {
-            ris = (int) r.nextInt(10);
+        for (int i = 0; i <= n.length; i++) {
+            ris = (int) r.nextInt(9)+1;
             n[i] = ris;
         }
 
@@ -26,7 +26,11 @@ public class SuperEnalottoNew {
         do {
             numeri[i] = r.nextInt(99)+1;
             i++;
-        } while (i < numeri.length);
+        } while (numeri[0] == numeri[1] || numeri[0] == numeri[2] || numeri[0] == numeri[3] || numeri[0] == numeri[4] || numeri[0] == numeri[5]
+        || numeri[1] == numeri[2] || numeri[1] == numeri[3] || numeri[1] == numeri[4] || numeri[1] == numeri[5]
+        || numeri[2] == numeri[3] || numeri[2] == numeri[4] || numeri[2] == numeri[5]
+        || numeri[3] == numeri[4] || numeri[3] == numeri[5]
+        || numeri[4] == numeri[5] || numeri[5] == 0);
 
   
 

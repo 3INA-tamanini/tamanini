@@ -16,11 +16,12 @@ public class SuperEnalottoNewTest {
             n = in.nextInt();
             numeri[i] = n;
         }
-
+        System.out.println("\n");
         System.out.print("la tua combinazione: ");
         for (int i = 0; i < numeri.length; i++) {
             System.out.print(numeri[i] + " ");
         }
+
         System.out.println("\n");
         System.out.println("combinazione corretta: ");
         for (int i = 0; i < numeri.length; i++) {
@@ -30,10 +31,10 @@ public class SuperEnalottoNewTest {
         for (int i = 0; i < numeri.length; i++) {
             for (int j = 0; j < numeri.length; j++) {
                 if (numeri[i] == numeroCorretto[j]) {
-                    System.out.println("il numero " + (i + 1) + "è corretto");
+                    System.out.println("il numero " + (i + 1) + " è corretto");
                 }
             }
-            
+
         }
     }
 }
