@@ -40,6 +40,6 @@ public class SuperEnalottoNewTest {
 
         } */
         
-        System.out.println(SuperEnalottoNew.isVinto(numeroCorretto, numeri));
+        System.out.println(SuperEnalottoNew.isVinto(numeri));
     }
 }
