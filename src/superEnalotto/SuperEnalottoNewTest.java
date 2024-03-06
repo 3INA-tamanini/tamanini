@@ -10,7 +10,7 @@ public class SuperEnalottoNewTest {
         SuperEnalottoNew s = new SuperEnalottoNew();
 
         int numeri[] = new int[6];
-        int[] numeroCorretto = s.superEnalottoNoNumeriRipetuti();
+        int[] numeroCorretto = SuperEnalottoNew.superEnalottoNoNumeriRipetuti();
         for (int i = 0; i < numeri.length; i++) {
             System.out.print("inserisci un numero: ");
             n = in.nextInt();
@@ -21,20 +21,25 @@ public class SuperEnalottoNewTest {
         for (int i = 0; i < numeri.length; i++) {
             System.out.print(numeri[i] + " ");
         }
-
         System.out.println("\n");
+        
+        
         System.out.println("combinazione corretta: ");
         for (int i = 0; i < numeri.length; i++) {
             System.out.print(numeroCorretto[i] + " ");
         }
         System.out.println("\n");
-        for (int i = 0; i < numeri.length; i++) {
+        
+        
+        /*for (int i = 0; i < numeri.length; i++) {
             for (int j = 0; j < numeri.length; j++) {
                 if (numeri[i] == numeroCorretto[j]) {
                     System.out.println("il numero " + (i + 1) + " è corretto");
                 }
             }
 
-        }
+        } */
+        
+        System.out.println(SuperEnalottoNew.isVinto(numeroCorretto, numeri));
     }
 }

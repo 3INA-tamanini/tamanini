@@ -3,24 +3,22 @@ package superEnalotto;
 import java.util.Random;
 
 public class SuperEnalottoNew {
-
+    private static int[] numeri = new int[6];
+    
     public SuperEnalottoNew() {
     }
 
-    public int[] superEnalotto() {
-        int[] n = new int[6];
-        int ris;
-        Random r = new Random();
-        for (int i = 0; i <= n.length; i++) {
-            ris = (int) r.nextInt(9)+1;
-            n[i] = ris;
-        }
-
-        return n;
+    public static int[] getNumeri() {
+        return numeri;
     }
 
-    public int[] superEnalottoNoNumeriRipetuti() {
-        int[] numeri = new int[6];
+    public static void setNumeri(int[] numeri) {
+        SuperEnalottoNew.numeri = numeri;
+    }
+
+    
+    public static int[] superEnalottoNoNumeriRipetuti() {
+        
         int i = 0;
         Random r = new Random();
         do {
@@ -35,5 +33,24 @@ public class SuperEnalottoNew {
   
 
         return numeri;
+    }
+    
+    
+    public static String isVinto(int[] mio){
+        String si = "";
+        int k = 0;
+        for (int i = 0; i < mio.length; i++) {
+            for (int j = 0; j < mio.length; j++) {
+                if (mio[i] == numeri[j]) {
+                    k++;
+                    
+                }
+            }
+        }
+        if(k==1)
+            si = "hai indovinato " + k + " numero";
+        else
+            si = "hai indovinato " + k + " numeri";
+        return si;
     }
 }
