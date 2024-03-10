@@ -1,6 +1,7 @@
 package eserciziDevincentis;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Array {
 
@@ -28,8 +29,10 @@ public class Array {
 	}
 
 	public static void main(String[] args) {
-		int n = 8;
+		Scanner in = new Scanner(System.in);
 
+		System.out.println("inserisci il numero di elementi: ");
+		int n = in.nextInt();
 		Array a = new Array();
 
 		int[] numeri = a.generaNumeri(n);
