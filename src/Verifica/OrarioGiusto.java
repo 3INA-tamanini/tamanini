@@ -1,19 +1,27 @@
 package Verifica;
 
 import java.util.Scanner;
+import java.time.LocalTime;
 
 /**
  * @version 1.0
  * @author tamanini
  */
-public class Orario {
+public class OrarioGiusto {
 
     private int o, m, s;
 
-    public Orario(int o, int m, int s) {
-        this.o = o;
-        this.m = m;
-        this.s = s;
+    public OrarioGiusto() {
+        LocalTime adesso = LocalTime.now();
+        o = adesso.getHour();
+        m = adesso.getMinute();
+        s = adesso.getSecond();
+    }
+
+    public OrarioGiusto(int o, int m, int s) {
+        setO(o);
+        setM(m);
+        setS(s);
     }
 
     /**
@@ -30,8 +38,10 @@ public class Orario {
      *
      * @param o
      */
-    public void setO(int o) {
-        this.o = o;
+    final public void setO(int o) {
+        if (isValida()) {
+            this.o = o;
+        }
     }
 
     /**
@@ -48,8 +58,10 @@ public class Orario {
      *
      * @param m
      */
-    public void setM(int m) {
-        this.m = m;
+    final public void setM(int m) {
+        if (isValida()) {
+            this.m = m;
+        }
     }
 
     /**
@@ -66,8 +78,10 @@ public class Orario {
      *
      * @param s
      */
-    public void setS(int s) {
-        this.s = s;
+    final public void setS(int s) {
+        if (isValida()) {
+            this.s = s;
+        }
     }
 
     /**
@@ -77,24 +91,25 @@ public class Orario {
      */
     public String info() {
         String testo = "";
-        if (o < 10) {
-            testo += "0" + o + ":";
-        } else {
-            testo += o + ":";
-        }
+        if (isValida()) {
+            if (o < 10) {
+                testo += "0" + o + ":";
+            } else {
+                testo += o + ":";
+            }
 
-        if (m < 10) {
-            testo += "0" + m + ":";
-        } else {
-            testo += m + ":";
-        }
+            if (m < 10) {
+                testo += "0" + m + ":";
+            } else {
+                testo += m + ":";
+            }
 
-        if (s < 10) {
-            testo += "0" + s;
-        } else {
-            testo += s;
+            if (s < 10) {
+                testo += "0" + s;
+            } else {
+                testo += s;
+            }
         }
-
         return testo;
     }
 
@@ -105,7 +120,13 @@ public class Orario {
      */
     private boolean isValida() {
         boolean valida = false;
-        if (s < 60 && m < 60 && o < 24) {
+        valida = isValida(o, m, s);
+        return valida;
+    }
+
+    public static boolean isValida(int o, int m, int s) {
+        boolean valida = false;
+        if ((s < 60 && s > 0) && (m < 60 && m > 0) && (o < 24 && o > 0)) {
             valida = true;
         }
         return valida;
@@ -119,7 +140,14 @@ public class Orario {
      */
     public int secondiEquivalenti() {
         int secondi = 0;
-        if (isValida()) {
+        secondi = secondiEquivalenti(o, m, s);
+
+        return secondi;
+    }
+
+    public static int secondiEquivalenti(int o, int m, int s) {
+        int secondi = 0;
+        if (isValida(o, m, s)) {
             secondi = s;
             secondi += (m * 60);
             secondi += (o * 3600);
@@ -172,13 +200,23 @@ public class Orario {
      * @return int
      */
     public int differenzaOrari(int o2, int m2, int s2) {
-        int secondiPrimaOrario = secondiEquivalenti();
-        int secondiSecondaOrario = 0;
-        if (s2 < 60 && m2 < 60 && o2 < 24) {
-            secondiSecondaOrario = s2 + (m2 * 60) + (o2 * 3600);
+        int differenzaSecondi = 0;
+        if (isValida() && isValida(o2, m2, s2)) {
+            differenzaSecondi = Math.abs((secondiEquivalenti() - secondiEquivalenti(02, m2, s2)));
         }
+        return differenzaSecondi;
+    }
 
-        int differenzaSecondi = Math.abs((secondiPrimaOrario - secondiSecondaOrario));
+    public int differenzaOrari2(OrarioGiusto ora) {
+        int differenzaSecondi = 0;
+
+        int o2 = ora.getO();
+        int m2 = ora.getM();
+        int s2 = ora.getS();
+
+        if (isValida() && isValida(o2, m2, s2)) {
+            differenzaSecondi = Math.abs((secondiEquivalenti() - secondiEquivalenti(02, m2, s2)));
+        }
         return differenzaSecondi;
     }
 
@@ -191,7 +229,7 @@ public class Orario {
         minuti = in.nextInt();
         System.out.print("inserisci i secondi: ");
         secondi = in.nextInt();
-        Orario orario = new Orario(ore, minuti, secondi);
+        OrarioGiusto orario = new OrarioGiusto(ore, minuti, secondi);
 
         System.out.println(orario.info());
         System.out.println("i secondi equivalenti sono: " + orario.secondiEquivalenti());

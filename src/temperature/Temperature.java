@@ -1,10 +1,28 @@
 package temperature;
 
 public class Temperature {
+
     private float[] temp = new float[7];
+    public int prova;
 
     public Temperature(float[] temp) {
         this.temp = temp;
+    }
+
+    public int getProva() {
+        return prova;
+    }
+
+    public void setProva(int g) {
+        this.prova = g;
+    }
+
+    public void modificaProva() {
+        prova = 100;
+    }
+
+    Temperature() {
+
     }
 
     public float[] getTemp() {
@@ -12,7 +30,9 @@ public class Temperature {
     }
 
     public void setTemp(float[] temp) {
-        this.temp = temp;
+        for (int i = 0; i < this.temp.length; i++) {
+            this.temp[i] = temp[i];
+        }
     }
 
     public float media() {
@@ -100,6 +120,11 @@ public class Temperature {
         return giorno;
     }
 
+    public void ordinaTemperature(){
+        
+    }
+    
+    
     public boolean aggiungiTemp(String giorno, float temperatura) {
         boolean corretto = true;
         for (int i = 0; i < temp.length; i++) {
