@@ -1,36 +1,51 @@
+import java.util.Scanner;
+
 public class ConvBinToDec {
 
-    private String numero;
+    private String binario;
 
     public ConvBinToDec() {
     }
 
-    public ConvBinToDec(String numero) {
-        this.numero = numero;
+    public ConvBinToDec(String binario) {
+        this.binario = binario;
     }
 
-    public String getNumero() {
-        return numero;
+    public String getBinario() {
+        return binario;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setBinario(String binario) {
+        this.binario = binario;
     }
 
-    public int conversione() {
-
-        int k = 0;
-        for (int i = 0; i < numero.length(); i++) {
-            if (numero.charAt(i) == '1') {
-                k += Math.pow(2, numero.length() - i - 1);
-            } else if (numero.charAt(i) == '0') {
-
-            } else {
-                k = -1;
-
+    public int convBinario() {
+        int decimale = 0, bit;
+        int i = binario.length() - 1;
+        int j = 0;
+        while (i >= 0) {
+            bit = this.binario.charAt(i) - '0';
+            i--;
+            if (bit == 1) {
+                decimale += Math.pow(2, j);
             }
+            j++;
         }
-        return k;
+        return decimale;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+
+        String testo;
+
+        System.out.println("Inserisci il numero binario");
+        testo = in.nextLine();
+
+        ConvBinToDec c = new ConvBinToDec(testo);
+
+        System.out.println("Il valore in decimale è: " + c.convBinario());
     }
 
 }

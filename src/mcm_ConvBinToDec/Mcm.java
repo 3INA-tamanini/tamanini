@@ -1,81 +1,60 @@
+import java.util.Scanner;
+
 public class Mcm {
 
-    private String num;
+    private String numeri;
 
-    public Mcm(String num) {
-        this.num = num;
+    public Mcm() {
     }
 
-    public String getNum() {
-        return num;
+    public Mcm(String numeri) {
+        this.numeri = numeri;
     }
 
-    public void setNum(String num) {
-        this.num = num;
+    public String getNumeri() {
+        return numeri;
     }
 
-    public int calcolaMcm() {
-        int mag2 = 0;
-        int mag3 = 0;
-        int mag5 = 0;
-        int mag7 = 0;
-        int mcm = 1;
+    public void setNumeri(String numeri) {
+        this.numeri = numeri;
+    }
 
-        String numeriStringhe[] = num.split(", ");
-
-        int[] array2 = new int[numeriStringhe.length];
-        int[] array3 = new int[numeriStringhe.length];
-        int[] array5 = new int[numeriStringhe.length];
-        int[] array7 = new int[numeriStringhe.length];
-
-        int[] arrayDiInteri = new int[numeriStringhe.length];
-
-        for (int p = 0; p < numeriStringhe.length; p++) {
-            arrayDiInteri[p] = Integer.parseInt(numeriStringhe[p]);
+    public int calcoloMCM() {
+        int mcm;
+        String[] stringhe = this.numeri.split(",");
+        int[] numeri = new int[stringhe.length];
+        for (int i = 0; i < stringhe.length; i++) {
+            numeri[i] = Integer.parseInt(stringhe[i]);
         }
-
-        for (int i = 0; i < arrayDiInteri.length; i++) {
-
-            while (arrayDiInteri[i] % 2 == 0) {
-                array2[i]++;
-                arrayDiInteri[i] /= 2;
-                if (array2[i] > mag2) {
-                    mag2 = array2[i];
+        int y = 0;
+        mcm = numeri[0];
+        boolean ripeti;
+        do {
+            y++;
+            ripeti = false;
+            for (int i = 1; i < numeri.length; i++) {
+                if ((mcm * y) % numeri[i] != 0) {
+                    ripeti = true;
                 }
             }
-
-            while (arrayDiInteri[i] % 3 == 0) {
-                array3[i]++;
-                arrayDiInteri[i] /= 3;
-                if (array3[i] > mag3) {
-                    mag3 = array3[i];
-                }
-            }
-
-            while (arrayDiInteri[i] % 5 == 0) {
-                array5[i]++;
-                arrayDiInteri[i] /= 5;
-                if (array5[i] > mag5) {
-                    mag5 = array5[i];
-                }
-            }
-
-            while (arrayDiInteri[i] % 7 == 0) {
-                array7[i]++;
-                arrayDiInteri[i] /= 7;
-                if (array7[i] > mag7) {
-                    mag7 = array7[i];
-                }
-            }
-
-            mcm = (int) (((Math.pow(2, mag2)) * (Math.pow(3, mag3))) * (Math.pow(5, mag5)) * (Math.pow(7, mag7)));
-
-          
-
-        }
-          return mcm;
-
+        } while (ripeti);
+        mcm *= y;
+        return mcm;
     }
+
+
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+
+        String testo;
+
+        System.out.println("Inserisci il valore dei numeri separati da una virgola");
+        testo = in.nextLine();
+
+        Mcm m = new Mcm(testo);
+
+        System.out.println("Il minimo comune multiplo é : " + m.calcoloMCM());
+    }
+
 }
-
-
