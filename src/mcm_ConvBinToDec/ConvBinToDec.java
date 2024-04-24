@@ -1,3 +1,5 @@
+package mcm_ConvBinToDec;
+
 import java.util.Scanner;
 
 public class ConvBinToDec {
