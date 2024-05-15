@@ -49,5 +49,5 @@ public class ConvBinToDec {
 
         System.out.println("Il valore in decimale è: " + c.convBinario());
     }
-
+    
 }
