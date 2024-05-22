@@ -4,62 +4,119 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Vettore {
+
     public int[] vett;
 
     public Vettore(int[] vett) {
-        this.vett = vett;
+        setVett(vett);
     }
 
     public int[] getVett() {
-        return vett;
+        if (vett == null) {
+            return null;
+        }
+
+        int[] temp = new int[vett.length];
+
+        System.arraycopy(vett, 0, temp, 0, vett.length);
+        return temp;
     }
 
-    public void setVett(int[] vett) {
-        this.vett = vett;
-    }
-
-    public void caricaVettoreRandom() {
-        Random random = new Random();
-        for (int i = 0; i < vett.length; i++) {
-            vett[i] = random.nextInt(99) + 1;
+    public final void setVett(int[] vett) {
+        if (isValido(vett)) {
+            this.vett = vett.clone();
         }
     }
 
-    public String visualizzaVettore() {
-        return Arrays.toString(vett);
-    }
-
-    public void ordinaVettore() {
-        int y, temp;
-        boolean scambio;
-        int k = vett.length - 1;
-        do {
-            scambio = false;
-            for (y = 0; y < k; y++) {
-                if (vett[y] > vett[y + 1]) {
-                    temp = vett[y];
-                    vett[y] = vett[y + 1];
-                    vett[y + 1] = temp;
-                    scambio = true;
-                }
-            }
-            k--;
-        } while (scambio == true);
-    }
-
-    private boolean isPosizione(int pos) {
-        if (pos > vett.length || pos < 0)
-            return false;
-        else
-            return true;
-    }
-
-    public boolean modificaElemento(int pos, int valore) {
-        if (isPosizione(pos)) {
-            vett[pos] = valore;
+    private boolean isValido(int[] vett) {
+        if (vett != null && vett.length > 0) {
             return true;
         } else {
             return false;
+        }
+    }
+
+    public void caricaVettoreRandom() {
+        if (vett != null) {
+            Random random = new Random();
+            for (int i = 0; i < vett.length; i++) {
+                vett[i] = random.nextInt(99) + 1;
+            }
+        }
+
+    }
+
+    public String visualizzaVettore() {
+        String testo = "";
+        if (vett != null) {
+            /*return Arrays.toString(vett);
+        else
+            return "";*/
+
+            testo = "[";
+            for (int i = 0; i < vett.length; i++) {
+                if (i == (vett.length - 1)) {
+                    testo += vett[i];
+                } else {
+                    testo += vett[i] + ", ";
+                }
+            }
+            testo += "]";
+        }
+
+        return testo;
+    }
+
+    public void ordinaVettore() {
+        if (vett != null) {
+            int temp;
+            for (int i = 0; i < vett.length; i++) {
+                for (int j = i + 1; j < vett.length; j++) {
+                    if (vett[i] > vett[j]) {
+                        temp = vett[i];
+                        vett[i] = vett[j];
+                        vett[j] = temp;
+                    }
+                }
+            }
+        }
+    }
+
+    private boolean isPosizione(int pos) {
+        if (pos > vett.length || pos < 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean modificaElemento(int pos, int valore) {
+        if (vett != null) {
+            if (isPosizione(pos)) {
+                vett[pos] = valore;
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public void aggiungiElemento(int valore) {
+        if (vett == null) {
+            vett = new int[1];
+
+            vett[0] = valore;
+        } else {
+            int[] newArray = new int[vett.length + 1];
+
+            for (int i = 0; i < vett.length; i++) {
+                newArray[i] = vett[i];
+            }
+            newArray[newArray.length - 1] = valore;
+
+            vett = newArray;
         }
     }
 
@@ -83,7 +140,7 @@ public class Vettore {
 
     public boolean rimuoviElementoPerValore(int valore) {
         int cont = 0;
-        int y = 0;
+
         for (int i = 0; i < vett.length; i++) {
             if (vett[i] == valore) {
                 cont++;
@@ -91,23 +148,40 @@ public class Vettore {
         }
 
         int newArray[] = new int[vett.length - cont];
-        if (valore > 0) {
-            for (int i = 0; i < vett.length; i++) {
-                if (vett[i] != valore) {
-                    newArray[y] = vett[i];
-                    y++;
-                } else {
 
-                }
-            }
-            vett = newArray;
-            return true;
-        } else
+        if (vett == null) {
             return false;
+        }
+
+        for (int i = 0; i < vett.length; i++) {
+            if (vett[i] == valore) {
+                rimuoviElementoPerPosizione(i);
+                i = 0;
+            }
+        }
+
+        return true;
+    }
+
+    public void ShiftDestra(int n) {
+        int temp;
+        for (int i = 0; i < vett.length; i++) {
+            temp = vett[i];
+            if (i + n < vett.length) {
+                
+                if (i <= n) {
+                    vett[i] = 0;
+                } else {
+                    vett[i + n] = temp;
+                }
+
+            }
+        }
+
     }
 
     public static void main(String[] args) {
-        int[] vettore = { 3, 3, 2, 7 };
+        int[] vettore = {3, 3, 2, 7};
 
         Vettore v = new Vettore(vettore);
 
@@ -122,8 +196,12 @@ public class Vettore {
         v.ordinaVettore();
         System.out.println(v.visualizzaVettore());
 
-        System.out.println("modifica il valore: ");
+        System.out.println("modifica elemento: ");
         v.modificaElemento(2, 12);
+        System.out.println(v.visualizzaVettore());
+
+        System.out.println("aggiungi un elemento: ");
+        v.aggiungiElemento(4);
         System.out.println(v.visualizzaVettore());
 
         System.out.println("rimosso un elemento per posizione: ");
@@ -133,6 +211,10 @@ public class Vettore {
         System.out.println("rimosso un elemento per valore: ");
         v.rimuoviElementoPerValore(3);
         System.out.println(v.visualizzaVettore());
-    }
 
+        System.out.println("shiftato verso destra perdendo l'ultimo dato: ");
+        v.ShiftDestra(1);
+        System.out.println(v.visualizzaVettore());
+
+    }
 }
