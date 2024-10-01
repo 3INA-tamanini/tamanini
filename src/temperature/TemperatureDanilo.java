@@ -1,4 +1,4 @@
-package misto;
+package temperature;
 
 /**
  * Scrivere una classe che, date le temperature di una settimana, ne calcoli la

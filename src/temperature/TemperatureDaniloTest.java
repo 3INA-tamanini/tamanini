@@ -1,4 +1,4 @@
-package misto;
+package temperature;
 
 import java.util.Scanner;
 
@@ -39,8 +39,6 @@ public class TemperatureDaniloTest {
         System.out.println("Il giorno con la temperatura maggiore è: " + t.tMax());
         System.out.println("Il giorno con la temperatura minore è: " + t.tMin());
         System.out.println("La temperatura media settimanale è: " + t.tMedia());
-        
-        
         
         
         
