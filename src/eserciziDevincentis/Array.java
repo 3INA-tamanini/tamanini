@@ -40,7 +40,7 @@ public class Array {
 		for (int i = 0; i < numeri.length; i++) {
 			System.out.print(numeri[i] + " ");
 		}
-
+		in.close();
 	}
 
 }

@@ -1,7 +1,6 @@
 package Frequenze;
 
 import java.util.Random;
-import java.util.Formatter;
 public class Frequenze3 {
 
     private int totNumeri;

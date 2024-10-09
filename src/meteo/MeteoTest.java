@@ -16,5 +16,5 @@ public class MeteoTest{
         System.out.println(meteo.consiglio2());
         System.out.println(meteo.consiglio3());
         System.out.println(meteo.consiglio4());
-    }
+        in.close();}
 }

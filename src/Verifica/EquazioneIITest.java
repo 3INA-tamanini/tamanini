@@ -22,7 +22,7 @@ public class EquazioneIITest {
         System.out.println("X2 = " + eq.x2());
 
         
-        
+        in.close();
         
     }
 

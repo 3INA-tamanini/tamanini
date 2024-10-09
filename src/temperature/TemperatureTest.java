@@ -47,5 +47,6 @@ public class TemperatureTest {
                     break;
             }
         } while (scelta != 6);
+        in.close();
     }
 }

@@ -81,12 +81,6 @@ public class Triangolo {
         return p;
     }
     
-    private float semiPerimetro(){
-        float semiPerimetro;
-        semiPerimetro = this.perimetro()/2;
-        return semiPerimetro;
-    }
-    
     public float area(){
         float p = perimetro()/2;
         

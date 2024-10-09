@@ -30,7 +30,7 @@ public class Cicli {
         do {
             System.out.println("inserisci il numero: ");
             num = in.nextInt();
-        } while (num!=0);
+        } while (num!=0);in.close();
         
     }
     

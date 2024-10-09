@@ -21,6 +21,6 @@ public class TrapezioTest {
     perimetro = trapezio.perimetro();
 
     System.out.println("l'area è: " + area);
-    System.out.println("il perimetro è: " + perimetro);
+    System.out.println("il perimetro è: " + perimetro);in.close();
   }
 }

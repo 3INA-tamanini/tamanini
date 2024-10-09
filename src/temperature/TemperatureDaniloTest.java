@@ -12,8 +12,6 @@ public class TemperatureDaniloTest {
         Scanner in = new Scanner(System.in);
         
         float[] temperature = new float[7];
-        String[] giorni = new String[7];
-        
         TemperatureDanilo t = new TemperatureDanilo();
         
         /*for(int i = 0; i < temperature.length; i++){
@@ -43,7 +41,7 @@ public class TemperatureDaniloTest {
         
         
         
-        
+        in.close();
         
     }
     

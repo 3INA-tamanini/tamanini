@@ -15,6 +15,6 @@ public class EquazioneTest {
 
 
         Equazione equazione = new Equazione(a, b);
-        System.out.println(equazione.soluzione());
+        System.out.println(equazione.soluzione());in.close();
     }
 }

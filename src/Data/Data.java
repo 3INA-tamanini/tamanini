@@ -1,15 +1,18 @@
 package Data;
-
+@SuppressWarnings("static-access")
 public class Data {
 
-    private static int g, m, a;
+    private   static int g;
+    private  static int m;
+    private static int a;
 
     public Data() {
     }
 
+
     public Data(int g, int m, int a) {
-        this.g = g;
-        this.m = m;
+        Data.g = g;
+        Data.m = m;
         this.a = a;
     }
 

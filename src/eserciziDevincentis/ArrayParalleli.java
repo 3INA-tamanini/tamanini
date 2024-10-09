@@ -51,7 +51,7 @@ public class ArrayParalleli {
             cognome = in.next();
             System.out.println("inserisci l'altezza degli atleti: ");
             altezza = in.nextInt();
-            a.inserisci(i, atleti, nome, cognome, altezza);
+            a.inserisci(i, atleti, nome, cognome, altezza);in.close();
         }
         
         

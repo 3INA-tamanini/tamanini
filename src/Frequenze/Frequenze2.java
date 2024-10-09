@@ -57,7 +57,7 @@ public class Frequenze2 {
             differenza = differenza - contatore;
         }
         testo += f;
-
+        f.close();
         return testo;
     }
 
@@ -74,6 +74,6 @@ public class Frequenze2 {
         Frequenze2 f = new Frequenze2(tot, n);
 
         System.out.println(f.frequenza());
-
+        in.close();
     }
 }

@@ -11,5 +11,6 @@ public class QuadratiTest {
         Quadrati2 q = new Quadrati2(n);
 
         System.out.println(q.quadrati());
+        in.close();
     }
 }

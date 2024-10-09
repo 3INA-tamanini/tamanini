@@ -24,6 +24,7 @@ public class PoligonoTest2 {
         System.out.println(p.info());
         System.out.println(p.tipo());
         System.out.println(p.perimetro());
+        in.close();
     }
 
 }

@@ -29,7 +29,7 @@ public class TriangoloScalenoTest{
         perimetro = ts.perimetro();
 
         System.out.println("l'area del triangolo scaleno è      : " + area);
-        System.out.println("il perimetro del triangolo scaleno è: " + perimetro);
+        System.out.println("il perimetro del triangolo scaleno è: " + perimetro);in.close();
     }
 
 }

@@ -36,7 +36,7 @@ public class TriangoloTest {
         System.out.println(t.altezza() + " " + t.getUdm());
         System.out.println(t.apotema());
         
-        
+        in.close();
         // String testo;
         // testo = t.isTriangolo()== true ? "si" : "no";
     }

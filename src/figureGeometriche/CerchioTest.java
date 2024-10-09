@@ -23,6 +23,6 @@ public class CerchioTest {
         perimetro = cerchio.perimetro();
         
         System.out.printf("l'area è      : %.2f \n",  area);
-        System.out.printf("il perimetro è: %.2f \n",  perimetro);
+        System.out.printf("il perimetro è: %.2f \n",  perimetro);in.close();
     }   
 }

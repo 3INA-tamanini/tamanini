@@ -19,7 +19,7 @@ public class BigliettoFerroviarioTest {
         BigliettoFerroviario b = new BigliettoFerroviario(costo, condizione);
         System.out.println(b.info());
         System.out.println("il costo finale del biglietto è: " + b.costoTot() + " euro");
-        
+        in.close();
     }
     
 }

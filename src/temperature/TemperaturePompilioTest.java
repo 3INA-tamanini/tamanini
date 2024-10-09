@@ -26,6 +26,6 @@ public class TemperaturePompilioTest {
             System.out.println(tem.ordinaTemperatureDecrescente()[i] + " ");
         }
         
-        
+        in.close();
     }
 }

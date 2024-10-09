@@ -18,7 +18,7 @@ public class PoligonoTest {
 
     System.out.println("il poligono è: " + p.tipo());
     System.out.println("il perimetro è: " + p.perimetro());
-    
+    in.close();
 
     }
 }

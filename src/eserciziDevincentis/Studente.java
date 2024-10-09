@@ -45,7 +45,7 @@ public class Studente {
     }
 
     public void setUltimaMatricola(int ultimaMatricola) {
-        this.ultimaMatricola = ultimaMatricola;
+        Studente.ultimaMatricola = ultimaMatricola;
     }
 
     public String stampaDati(){
@@ -80,13 +80,13 @@ public class Studente {
         System.out.println(s1.stampaDati());
         System.out.println(s2.stampaDati());
         
-        System.out.println("prossimo numero di matricola: " + s1.prossimaMatricola());
+        System.out.println("prossimo numero di matricola: " + Studente.prossimaMatricola());
         
         System.out.print("modifica il nome 1: ");
         s1.setNome(in.next());
         System.out.print("modifica il cognome 1: ");
         s1.setCognome(in.next());
-        
+        in.close();
         
         System.out.println(s1.stampaDati());
     }

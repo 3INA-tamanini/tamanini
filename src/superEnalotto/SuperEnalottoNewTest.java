@@ -1,7 +1,5 @@
 package superEnalotto;
 
-import java.util.Scanner;
-
 public class SuperEnalottoNewTest {
 
     public static void main(String[] args) {

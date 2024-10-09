@@ -59,7 +59,7 @@ public class NumeroTest {
                 case 6:
                     break;
             }
-        } while (scelta != 6);
+        } while (scelta != 6);in.close();
     }
 
 }

@@ -57,6 +57,6 @@ public class Mcm {
         Mcm m = new Mcm(testo);
 
         System.out.println("Il minimo comune multiplo é : " + m.calcoloMCM());
-    }
+        in.close();}
 
 }

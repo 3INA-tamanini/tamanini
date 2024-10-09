@@ -13,5 +13,5 @@ public class NumeroTest {
 
         System.out.println("la differenza tra " + n.nMax() + " e " + n.nMin()  + " è: " + n.differenza(n1, n2));
     
-    }
+        in.close();}
 }

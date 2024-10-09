@@ -24,5 +24,6 @@ public class SuperEnalottoTest2 {
 			System.out.println("\nhai vinto!!");
 		else
 			System.out.println("\nnon hai vinto" + "\nscarso");
+		in.close();
 	}
 }

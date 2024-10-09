@@ -27,6 +27,7 @@ public class StudenteTest {
         s.setEsito(voto);
         
         System.out.println(s.info());
+        in.close();
     }
     
 }

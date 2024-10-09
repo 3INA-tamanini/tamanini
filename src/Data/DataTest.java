@@ -29,5 +29,5 @@ public class DataTest {
 
         System.out.println("tra il " + Data.info() + " e il " + Data.info2(g2, m2, a2) + " sono passati "
                 + Data.nGiorni(g2, m2, a2) + " giorni");
-    }
+    in.close();}
 }

@@ -10,7 +10,6 @@ public class Menu {
         Poligono p = null;
         int valore, n;
         float l;
-        boolean istanza = false, set = false;
         do {
             System.out.println("MENU");
             System.out.println("1 - Costruttore senza parametri");
@@ -24,7 +23,6 @@ public class Menu {
             switch (valore) {
                 case 1:
                     p = new Poligono();
-                    istanza = true;
                     break;
                 case 2:
                     System.out.print("inserire il numero dei lati: ");
@@ -33,11 +31,10 @@ public class Menu {
                     System.out.print("inserire il lato: ");
                     l = in.nextFloat();
                     p.setL(l);
-                    set = true;
                     break;
                 case 3:
-                    if(p.isPoligono())
-                        System.out.println("perimetro: "+ p.perimetro());
+                    if (p.isPoligono())
+                        System.out.println("perimetro: " + p.perimetro());
                     else
                         System.out.println("dati errati, reinserire");
                     break;
@@ -45,7 +42,7 @@ public class Menu {
                     System.out.println("\nscelta errata\n");
             }
         } while (valore != 4);
-
+        in.close();
     }
 
 }

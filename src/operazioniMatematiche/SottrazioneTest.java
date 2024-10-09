@@ -27,6 +27,7 @@ public class SottrazioneTest {
         System.out.println("primo numero  : " + n1);
         System.out.println("secondo numero: " + n2);
         System.out.println("risultato      : " + risultato);
+        input.close();
     }
     
 }

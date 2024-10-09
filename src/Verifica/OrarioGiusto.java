@@ -244,6 +244,6 @@ public class OrarioGiusto {
         secondi = in.nextInt();
 
         System.out.println("la differenza in secondi è: " + orario.differenzaOrari(ore, minuti, secondi));
-
+        in.close();
     }
 }

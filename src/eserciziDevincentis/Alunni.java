@@ -102,7 +102,7 @@ public class Alunni {
             default:
                 System.out.println("opzione non valida");
         }
-        }while(scelta!=3);
+        }while(scelta!=3);input.close();
 
     }
 }

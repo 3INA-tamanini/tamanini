@@ -28,7 +28,7 @@ public class SommaTest {
         
         System.out.println("numero 1: " + n1);
         System.out.println("numero 2: " + n2);
-        System.out.println(risultato);
+        System.out.println(risultato);input.close();
     }
     
 }

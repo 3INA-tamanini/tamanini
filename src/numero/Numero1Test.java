@@ -19,6 +19,6 @@ public class Numero1Test {
         System.out.println(n.pNZ1());
         
         System.out.println(n.pNZ2());
-    }
+        in.close();}
     
 }

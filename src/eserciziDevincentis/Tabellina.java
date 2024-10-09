@@ -14,7 +14,7 @@ public class Tabellina {
             tabellina = num * i;
             System.out.println(num + " X " + i + " = " + tabellina);
             i++;
-        }
+        }in.close();
 
     }
 }

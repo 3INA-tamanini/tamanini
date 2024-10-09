@@ -48,6 +48,6 @@ public class ConvBinToDec {
         ConvBinToDec c = new ConvBinToDec(testo);
 
         System.out.println("Il valore in decimale è: " + c.convBinario());
-    }
+        in.close();}
     
 }

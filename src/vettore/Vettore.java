@@ -1,6 +1,6 @@
 package vettore;
 
-import java.util.Arrays;
+
 import java.util.Random;
 
 public class Vettore {
@@ -139,15 +139,10 @@ public class Vettore {
     }
 
     public boolean rimuoviElementoPerValore(int valore) {
-        int cont = 0;
-
         for (int i = 0; i < vett.length; i++) {
             if (vett[i] == valore) {
-                cont++;
             }
         }
-
-        int newArray[] = new int[vett.length - cont];
 
         if (vett == null) {
             return false;

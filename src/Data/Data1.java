@@ -1,7 +1,7 @@
 package Data;
 
 import java.time.LocalDate;
-
+@SuppressWarnings("static-access")
 public class Data1 {
 
     private static int g, m, a;

@@ -72,6 +72,7 @@ public class DivisoriMultipli {
                     scelta = 0;
             }
         } while (scelta < 3);
+        in.close();
 
     }
 

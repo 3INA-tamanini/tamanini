@@ -30,7 +30,7 @@ public class RettangoloTest {
         System.out.println("la base del rettangolo è  : " + rettangolo.getBase());
         System.out.println("l'altezza del rettangolo è: " + rettangolo.getAltezza());
         System.out.println("l'area è                  : " + area);
-        System.out.println("il perimetro è            : " + perimetro);
+        System.out.println("il perimetro è            : " + perimetro);in.close();
         
         
     }

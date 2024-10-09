@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class NumeriPariEDispariTest {
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int scelta, n;
@@ -27,7 +28,7 @@ public class NumeriPariEDispariTest {
                     if (istanziato) {
                         System.out.print("inserisci un numero: ");
                         n = in.nextInt();
-                        System.out.println(pd.primiNumeriPari1(n));
+                        System.out.println(NumeriPariEDispari.primiNumeriPari1(n));
                     } else {
                         System.out.println("inserisci prima l'opzione 1");
                     }
@@ -36,7 +37,7 @@ public class NumeriPariEDispariTest {
                     if (istanziato == true) {
                         System.out.print("inserisci un numero: ");
                         n = in.nextInt();
-                        System.out.println(pd.primiNumeriDispari1(n));
+                        System.out.println(NumeriPariEDispari.primiNumeriDispari1(n));
                     } else {
                         System.out.println("inserisci prima l'opzione 1");
                     }
@@ -46,5 +47,6 @@ public class NumeriPariEDispariTest {
                     break;
             }
         } while (scelta != 4);
+        in.close();
     }
 }

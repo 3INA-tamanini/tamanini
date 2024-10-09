@@ -29,7 +29,7 @@ public class TriangoloRettangoloTest {
         perimetro = tr.perimetro();
         System.out.println("dati di output : ");
         System.out.println("l'area è       :  " +  area);
-        System.out.println("il perimetro è :  " + perimetro);
+        System.out.println("il perimetro è :  " + perimetro);in.close();
         
     }
     
