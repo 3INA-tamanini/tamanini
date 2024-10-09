@@ -1,4 +1,5 @@
 package tris;
+
 public class Tris {
 
     private String g1;
@@ -54,28 +55,17 @@ public class Tris {
         return si;
     }
 
-    public String vCampo() {
-        String testo = "";
-        for (int i = 0; i < campo.length; i++) {
-            for (int j = 0; j < campo.length; j++) {
-                testo += campo[i][j] + " ";
-            }
-            testo += "\n";
-        }
-        return testo;
-    }
-
     public void riempiCampo() {
         for (int i = 0; i < campo.length; i++) {
             for (int j = 0; j < campo.length; j++) {
-                if(campo[i][j] != "X" && campo[i][j] != "O"){
-                campo[i][j] = "-";
+                if (campo[i][j] != "X" && campo[i][j] != "O") {
+                    campo[i][j] = "-";
                 }
             }
 
         }
     }
-    
+
     public void resetCampo() {
         for (int i = 0; i < campo.length; i++) {
             for (int j = 0; j < campo.length; j++) {
@@ -85,45 +75,38 @@ public class Tris {
         }
     }
 
-    public boolean controllaVintoG1() {
-        boolean ris = false;
-        for (int i = 0; i < 3; i++) {
-            if (campo[i][0] == g1 && campo[i][1] == g1 && campo[i][2] == g1) {
-                ris = true;
-            }
-            if (campo[0][i] == g1 && campo[1][i] == g1 && campo[2][i] == g1) {
-                ris = true;
-            }
-            if (campo[0][0] == g1 && campo[1][1] == g1 && campo[2][2] == g1) {
-                ris = true;
-            }
-            if (campo[0][2] == g1 && campo[1][1] == g1 && campo[2][0] == g1) {
-                ris = true;
-            }
-        }
-        
-        return ris;
-    }
+    public int controllaVinto() {
+        int m = 0;
 
-    
-
-    public boolean controllaVintoG2() {
-        boolean ris = false;
+        // Check rows and columns in a single loop
         for (int i = 0; i < 3; i++) {
-            if (campo[i][0] == g2 && campo[i][1] == g2 && campo[i][2] == g2) {
-                ris = true;
-            }
-            if (campo[0][i] == g2 && campo[1][i] == g2 && campo[2][i] == g2) {
-                ris = true;
-            }
-            if (campo[0][0] == g2 && campo[1][1] == g2 && campo[2][2] == g2) {
-                ris = true;
-            }
-            if (campo[0][2] == g2 && campo[1][1] == g2 && campo[2][0] == g2) {
-                ris = true;
+            if ((campo[i][0].equals("X") && campo[i][1].equals("X") && campo[i][2].equals("X"))
+                    || (campo[0][i].equals("X") && campo[1][i].equals("X") && campo[2][i].equals("X"))) {
+                m = 1;
             }
         }
 
-        return ris;
+        // Check diagonals
+        if ((campo[0][0].equals("X") && campo[1][1].equals("X") && campo[2][2].equals("X"))
+                || // Main diagonal
+                (campo[2][0].equals("X") && campo[1][1].equals("X") && campo[0][2].equals("X"))) { // Anti-diagonal
+            m = 1;
+        }
+
+        for (int i = 0; i < 3; i++) {
+            if ((campo[i][0].equals("O") && campo[i][1].equals("O") && campo[i][2].equals("O"))
+                    || (campo[0][i].equals("O") && campo[1][i].equals("O") && campo[2][i].equals("O"))) {
+                m = 2;
+            }
+        }
+
+        // Check diagonals
+        if ((campo[0][0].equals("O") && campo[1][1].equals("O") && campo[2][2].equals("O"))
+                || // Main diagonal
+                (campo[2][0].equals("O") && campo[1][1].equals("O") && campo[0][2].equals("O"))) { // Anti-diagonal
+            m = 2;
+        }
+
+        return m;
     }
 }
