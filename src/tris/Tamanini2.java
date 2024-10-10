@@ -14,10 +14,11 @@ public class Tamanini2 {
         int x, y;
         String vinto = "";
         do {
-            System.out.println("inserisci la X");
-            x = in.nextInt();
-            System.out.println("inserisci la Y");
-            y = in.nextInt();
+            System.out.println(t.info());
+            System.out.print("inserisci la riga: ");
+            x = in.nextInt()-1;
+            System.out.print("inserisci la colonna:");
+            y = in.nextInt()-1;
             vinto = t.gioca(x, y);
             System.out.println(t.info());
         } while (vinto.equals(""));

@@ -90,7 +90,7 @@ public final class TrisErrato {
     }
 
     private String verificaVincitaOParita() {
-        // Righe       
+        // Righe
         int contX = 0;
         int contO = 0;
 
@@ -115,7 +115,7 @@ public final class TrisErrato {
             contO = 0;
         }
 
-        // Colonne    
+        // Colonne
         contX = 0;
         contO = 0;
 
@@ -165,8 +165,8 @@ public final class TrisErrato {
         contO = 0;
 
         for (int i = campoDaGioco.length - 1; i >= 0; i--) {
-            int riga = campoDaGioco.length-1;
-            int offset = riga-i;
+            int riga = campoDaGioco.length - 1;
+            int offset = riga - i;
             if (Objects.equals(campoDaGioco[i][offset], "X")) {
                 contX++;
                 if (contX == campoDaGioco.length) {
@@ -213,7 +213,7 @@ public final class TrisErrato {
     }
 
     public String info() {
-        String matrice = "┌────┐\n";
+        String matrice = " 1 2 3\n┌─┬─┬─┐\n";
 
         for (int i = 0; i < campoDaGioco.length; i++) {
 
@@ -221,10 +221,10 @@ public final class TrisErrato {
                 matrice += "│" + campoDaGioco[i][j];
 
             }
-            matrice += "│\n";
-            matrice += i < campoDaGioco.length - 1 ? "├────┤\n" : "";
+            matrice += "│ " + (i+1) + "\n";
+            matrice += i < campoDaGioco.length - 1 ? "├─┼─┼─┤\n" : "";
         }
-        matrice += "└────┘\n";
+        matrice += "└─┴─┴─┘\n";
         return matrice;
     }
 }
