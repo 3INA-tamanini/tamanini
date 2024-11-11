@@ -45,13 +45,11 @@ public class Forza4 {
                     i++;
                 }
 
-            }
+            } 
         }
     }
 
-    private String vinto() {
-        return null;
-    }
+
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -62,5 +60,6 @@ public class Forza4 {
         x = in.nextInt();
         f.inserisciSimbolo(x);
         System.out.println(f.info());
+        in.close();
     }
 }
