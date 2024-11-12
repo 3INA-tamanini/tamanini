@@ -49,6 +49,6 @@ public class Stringhe {
 
         System.out.println("numero spazi     : " + contaSpazi(stringa));
         System.out.println("numero vocali    : " + contaVocali(stringa));
-        System.out.println("numero consonanti: " + contaConsonanti(stringa));
+        System.out.println("numero consonanti: " + contaConsonanti(stringa));in.close();
     }
 }
