@@ -31,7 +31,7 @@ public class Matrice {
         return matrice;
     }
 
-    public static int determinante2x2(int[][] matrice) {
+    public static int calcolaDeterminante(int[][] matrice) {
         return (matrice[0][0] * matrice[1][1]) - (matrice[1][0] * matrice[0][1]);
     }
 
