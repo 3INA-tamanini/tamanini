@@ -7,11 +7,32 @@ public class Matrice {
 
     public static int[][] caricaRandom(int[][] matrice) {
         Random r = new Random();
-        int[][] is = matrice;
-        do {
-            
-        } while (matrice[matrice.length][matrice[0].length] == 0);
-        return is;
+        int numeroRandom = r.nextInt(9) + 1;
+        int contatore = 0;
+
+        for (int i = 0; i < matrice.length; i++) {
+            for (int j = 0; j < matrice[0].length; j++) {
+
+                if (matrice[i][j] == 0) {
+                    matrice[i][j] = numeroRandom;
+                    contatore++;
+                    i = 0;
+                    j = -1;
+                } else if (matrice[i][j] == numeroRandom) {
+                    numeroRandom = r.nextInt(9) + 1;
+                    i = 0;
+                    j = -1;
+                } else if (contatore == 9) {
+                    i = matrice.length;
+                    j = matrice[0].length;
+                }
+            }
+        }
+        return matrice;
+    }
+
+    public static int determinante2x2(int[][] matrice) {
+        return (matrice[0][0] * matrice[1][1]) - (matrice[1][0] * matrice[0][1]);
     }
 
     public static int sommaElementi(int matrice[][]) {
@@ -65,7 +86,8 @@ public class Matrice {
     }
 
     public static void main(String[] args) {
-        int[][] matrice = {{9, 8, 7, 10}, {6, 5, 4, 20}, {3, 2, 1, 31}};
+        int[][] matrice = new int[3][4];
+        matrice = caricaRandom(matrice);
         System.out.println("matrice: " + Arrays.deepToString(matrice));
         System.out.println("somma: " + Matrice.sommaElementi(matrice));
         System.out.println("media: " + Matrice.media(matrice));
