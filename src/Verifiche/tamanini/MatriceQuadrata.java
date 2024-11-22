@@ -1,4 +1,4 @@
-package tamanini;
+package Verifiche.tamanini;
 
 import java.util.Random;
 
