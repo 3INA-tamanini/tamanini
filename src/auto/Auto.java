@@ -1,4 +1,4 @@
-package Auto;
+package auto;
 
 public class Auto {
 
