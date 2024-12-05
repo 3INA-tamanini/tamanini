@@ -37,11 +37,9 @@ public class Auto {
             throw new Exception("I caratteri centrali devono essere numeri.");
         }
 
-        int n1 = Character.getNumericValue(numero1);
-        int n2 = Character.getNumericValue(numero2);
-        int n3 = Character.getNumericValue(numero3);
-        int somma = n1 + n2 + n3;
-        if (somma > 20) {
+        
+        
+        if ((Character.getNumericValue(numero1)+Character.getNumericValue(numero2)+Character.getNumericValue(numero3))> 20) {
             throw new Exception("La somma dei numeri centrali non deve superare 20.");
         }
 
