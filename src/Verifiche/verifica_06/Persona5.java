@@ -3,7 +3,6 @@ package Verifiche.verifica_06;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Random;
-import java.util.Set;
 
 /**
  *
