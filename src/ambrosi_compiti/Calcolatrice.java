@@ -4,81 +4,53 @@ import java.util.Scanner;
 
 public class Calcolatrice<T extends Number> {
 
-    T n, m;
-
-    public Calcolatrice(T n, T m) {
-        this.n = n;
-        this.m = m;
+    public Double somma(T n, T m) {
+        return (n.doubleValue() + m.doubleValue());
     }
 
-    public Calcolatrice(T n) {
-        this.n = n;
+    public Double sottrazione(T n, T m) {
+        return (n.doubleValue() - m.doubleValue());
     }
 
-    public T getN() {
-        return n;
+    public Double moltiplicazione(T n, T m) {
+        return (n.doubleValue() * m.doubleValue());
     }
 
-    public void setN(T n) {
-        this.n = n;
+    public Double divisione(T n, T m) throws Exception {
+        if (m.doubleValue() == 0.0) {
+            throw new Exception("non puoi dividere per 0");
+        }
+        return (n.doubleValue() / m.doubleValue());
     }
 
-    public T getM() {
-        return m;
-    }
-
-    public void setM(T m) {
-        this.m = m;
-    }
-
-    public T somma(T n, T m) {
-        return (T) Double.valueOf(n.doubleValue() + m.doubleValue());
-    }
-    
-    public T sottrazione(T n, T m) {
-        return (T) Double.valueOf(n.doubleValue() - m.doubleValue());
-    }
-    
-    public T moltiplicazione(T n, T m) {
-        return (T) Double.valueOf(n.doubleValue() * m.doubleValue());
-    }
-    
-    public T divisione(T n, T m) {
-        return (T) Double.valueOf(n.doubleValue() / m.doubleValue());
-    }
-    
-
-    public T fattoriale(T n) {
+    public Integer fattoriale(Integer n) {
         if (n.doubleValue() <= 1) {
-            return (T) Double.valueOf(1);
+            return 1;
         } else {
-            return (T) Double.valueOf(n.doubleValue() * fattoriale((T) Double.valueOf(n.doubleValue() - 1)).doubleValue());
+            return (n * fattoriale(n- 1));
         }
     }
-    
 
-    public T esponenziale(T n, T esponente) {
-        if (esponente.doubleValue() <= 0) {
-            return (T) Double.valueOf(1);
-        } else {
-            return (T) Double.valueOf(n.doubleValue() * esponenziale(n, (T) Double.valueOf(esponente.doubleValue() - 1)).doubleValue());
+    public Double esponenziale(T n, Double esponente) {
+            if (b <= 0) {
+                return 1.0;
+            } else {
+                return (n.doubleValue() * esponenziale(n, esponente-1));
         }
     }
-    
 
-    public T fibonacci(T n) {
-        if (n.doubleValue() <= 1) {
-            return n;
-        } else {
-            return (T) Double.valueOf(fibonacci((T) Double.valueOf(n.doubleValue() - 1)).doubleValue() +fibonacci((T) Double.valueOf(n.doubleValue() - 2)).doubleValue());
+    public Integer fibonacci(Integer a) {
+            if (a.intValue() <= 1) {
+                return a.intValue();
+            } else {
+                return (fibonacci(a - 1)+ fibonacci(a - 2));
         }
     }
-    
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         int scelta;
         Scanner in = new Scanner(System.in);
-        Calcolatrice<Double> calcolatrice;
+        Calcolatrice<Double> calcolatrice = new Calcolatrice<>();
         do {
             Double a, b;
             System.out.println(
@@ -91,8 +63,8 @@ public class Calcolatrice<T extends Number> {
                     a = in.nextDouble();
                     System.out.print("inserisci il secondo numero: ");
                     b = in.nextDouble();
-                    calcolatrice = new Calcolatrice<Double>(a, b);
-                    System.out.println("il rirultato è: " + calcolatrice.somma(a, b));
+
+                    System.out.println("il risultato è: " + calcolatrice.somma(a, b));
                     break;
 
                 case 2:
@@ -101,7 +73,7 @@ public class Calcolatrice<T extends Number> {
                     a = in.nextDouble();
                     System.out.print("inserisci il secondo numero: ");
                     b = in.nextDouble();
-                    calcolatrice = new Calcolatrice<Double>(a, b);
+
                     System.out.println("la risultato è: " + calcolatrice.sottrazione(a, b));
                     break;
 
@@ -111,42 +83,46 @@ public class Calcolatrice<T extends Number> {
                     a = in.nextDouble();
                     System.out.print("inserisci il secondo numero: ");
                     b = in.nextDouble();
-                    calcolatrice = new Calcolatrice<Double>(a, b);
+
                     System.out.println("la risultato è: " + calcolatrice.moltiplicazione(a, b));
                     break;
 
                 case 4:
+                    try {
+                        System.out.print("inserisci il primo numero: ");
+                        a = in.nextDouble();
+                        System.out.print("inserisci il secondo numero: ");
+                        b = in.nextDouble();
 
-                    System.out.print("inserisci il primo numero: ");
-                    a = in.nextDouble();
-                    System.out.print("inserisci il secondo numero: ");
-                    b = in.nextDouble();
-                    calcolatrice = new Calcolatrice<Double>(a, b);
-                    System.out.println("la risultato è: " + calcolatrice.divisione(a, b));
-                    break;
+                        System.out.println("la risultato è: " + calcolatrice.divisione(a, b));
+                        break;
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        break;
+                    }
 
                 case 5:
 
                     System.out.print("inserisci il numero del quale vuoi calcolare il fattoriale: ");
                     a = in.nextDouble();
-                    calcolatrice = new Calcolatrice<Double>(a);
-                    System.out.println("il fattoriale di " + a.intValue() + " è: " + calcolatrice.fattoriale(a));
+
+                    System.out.println("il fattoriale di " + a.intValue() + " è: " + calcolatrice.fattoriale(a.intValue()));
                     break;
                 case 6:
 
-                    System.out.println("inserisci la base: ");
+                    System.out.print("inserisci la base: ");
                     a = in.nextDouble();
-                    System.out.println("inserisci l'esponente");
-                    b = in.nextDouble();
-                    calcolatrice = new Calcolatrice<Double>(a, b);
+                    System.out.print("inserisci l'esponente: ");
+                    b =  Double.parseDouble(in.next());
+
                     System.out.println("l'esponenziale è: " + calcolatrice.esponenziale(a, b));
                     break;
                 case 7:
 
                     System.out.println("inserisci il numero della sequenza di fibonacci che vuoi visualizzare: ");
                     a = in.nextDouble();
-                    calcolatrice = new Calcolatrice<Double>(a);
-                    System.out.println("numero della sequenza di fibonacci numero " + a.intValue() + ": " + calcolatrice.fibonacci(a));
+
+                    System.out.println("numero della sequenza di fibonacci numero " + a.intValue() + ": "+ calcolatrice.fibonacci(a.intValue()));
                     break;
                 case 8:
                     System.out.println("esco");
