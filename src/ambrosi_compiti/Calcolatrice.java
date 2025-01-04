@@ -92,7 +92,7 @@ public class Calcolatrice<T extends Number> {
                     System.out.print("inserisci il secondo numero: ");
                     b = in.nextDouble();
                     calcolatrice = new Calcolatrice<Double>(a, b);
-                    System.out.println("la somma è: " + calcolatrice.somma(a, b));
+                    System.out.println("il rirultato è: " + calcolatrice.somma(a, b));
                     break;
 
                 case 2:
@@ -102,7 +102,7 @@ public class Calcolatrice<T extends Number> {
                     System.out.print("inserisci il secondo numero: ");
                     b = in.nextDouble();
                     calcolatrice = new Calcolatrice<Double>(a, b);
-                    System.out.println("la somma è: " + calcolatrice.sottrazione(a, b));
+                    System.out.println("la risultato è: " + calcolatrice.sottrazione(a, b));
                     break;
 
                 case 3:
@@ -112,7 +112,7 @@ public class Calcolatrice<T extends Number> {
                     System.out.print("inserisci il secondo numero: ");
                     b = in.nextDouble();
                     calcolatrice = new Calcolatrice<Double>(a, b);
-                    System.out.println("la somma è: " + calcolatrice.moltiplicazione(a, b));
+                    System.out.println("la risultato è: " + calcolatrice.moltiplicazione(a, b));
                     break;
 
                 case 4:
@@ -122,7 +122,7 @@ public class Calcolatrice<T extends Number> {
                     System.out.print("inserisci il secondo numero: ");
                     b = in.nextDouble();
                     calcolatrice = new Calcolatrice<Double>(a, b);
-                    System.out.println("la somma è: " + calcolatrice.divisione(a, b));
+                    System.out.println("la risultato è: " + calcolatrice.divisione(a, b));
                     break;
 
                 case 5:
@@ -130,7 +130,7 @@ public class Calcolatrice<T extends Number> {
                     System.out.print("inserisci il numero del quale vuoi calcolare il fattoriale: ");
                     a = in.nextDouble();
                     calcolatrice = new Calcolatrice<Double>(a);
-                    System.out.println("fattoriale: " + calcolatrice.fattoriale(a));
+                    System.out.println("il fattoriale di " + a.intValue() + " è: " + calcolatrice.fattoriale(a));
                     break;
                 case 6:
 
@@ -139,7 +139,7 @@ public class Calcolatrice<T extends Number> {
                     System.out.println("inserisci l'esponente");
                     b = in.nextDouble();
                     calcolatrice = new Calcolatrice<Double>(a, b);
-                    System.out.println("esponenziale: " + calcolatrice.esponenziale(a, b));
+                    System.out.println("l'esponenziale è: " + calcolatrice.esponenziale(a, b));
                     break;
                 case 7:
 
@@ -150,7 +150,9 @@ public class Calcolatrice<T extends Number> {
                     break;
                 case 8:
                     System.out.println("esco");
+                    break;
                 default:
+                    System.out.println("scelta errata");
                     break;
             }
         } while (scelta != 8);
