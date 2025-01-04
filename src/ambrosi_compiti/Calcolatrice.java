@@ -23,28 +23,38 @@ public class Calcolatrice<T extends Number> {
         return (n.doubleValue() / m.doubleValue());
     }
 
-    public Integer fattoriale(Integer n) {
-        if (n.doubleValue() <= 1) {
-            return 1;
+    public Integer fattoriale(Integer n) throws Exception {
+        if (n < 0) {
+            throw new Exception("il numero deve essere >= 0");
         } else {
-            return (n * fattoriale(n- 1));
+            if (n <= 1) {
+                return 1;
+            } else {
+                return (n * fattoriale(n - 1));
+            }
         }
+
     }
 
     public Double esponenziale(T n, Double esponente) {
-            if (b <= 0) {
-                return 1.0;
-            } else {
-                return (n.doubleValue() * esponenziale(n, esponente-1));
+        if (esponente <= 0) {
+            return 1.0;
+        } else {
+            return (n.doubleValue() * esponenziale(n, esponente - 1));
         }
     }
 
-    public Integer fibonacci(Integer a) {
+    public Integer fibonacci(Integer a) throws Exception {
+        if (a < 0) {
+            throw new Exception("il numero deve essere >= 0");
+        } else {
             if (a.intValue() <= 1) {
                 return a.intValue();
             } else {
-                return (fibonacci(a - 1)+ fibonacci(a - 2));
+                return (fibonacci(a - 1) + fibonacci(a - 2));
+            }
         }
+
     }
 
     public static void main(String[] args) throws Exception {
@@ -102,28 +112,40 @@ public class Calcolatrice<T extends Number> {
                     }
 
                 case 5:
+                    try {
+                        System.out.print("inserisci il numero del quale vuoi calcolare il fattoriale: ");
+                        a = in.nextDouble();
 
-                    System.out.print("inserisci il numero del quale vuoi calcolare il fattoriale: ");
-                    a = in.nextDouble();
+                        System.out.println(
+                                "il fattoriale di " + a.intValue() + " è: " + calcolatrice.fattoriale(a.intValue()));
+                        break;
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        break;
+                    }
 
-                    System.out.println("il fattoriale di " + a.intValue() + " è: " + calcolatrice.fattoriale(a.intValue()));
-                    break;
                 case 6:
 
                     System.out.print("inserisci la base: ");
                     a = in.nextDouble();
                     System.out.print("inserisci l'esponente: ");
-                    b =  Double.parseDouble(in.next());
+                    b = Double.parseDouble(in.next());
 
                     System.out.println("l'esponenziale è: " + calcolatrice.esponenziale(a, b));
                     break;
                 case 7:
+                    try {
+                        System.out.println("inserisci il numero della sequenza di fibonacci che vuoi visualizzare: ");
+                        a = in.nextDouble();
 
-                    System.out.println("inserisci il numero della sequenza di fibonacci che vuoi visualizzare: ");
-                    a = in.nextDouble();
+                        System.out.println("numero della sequenza di fibonacci numero " + a.intValue() + ": "
+                                + calcolatrice.fibonacci(a.intValue()));
+                        break;
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        break;
+                    }
 
-                    System.out.println("numero della sequenza di fibonacci numero " + a.intValue() + ": "+ calcolatrice.fibonacci(a.intValue()));
-                    break;
                 case 8:
                     System.out.println("esco");
                     break;
