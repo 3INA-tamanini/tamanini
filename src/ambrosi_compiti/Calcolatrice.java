@@ -48,8 +48,8 @@ public class Calcolatrice<T extends Number> {
         if (a < 0) {
             throw new Exception("il numero deve essere >= 0");
         } else {
-            if (a.intValue() <= 1) {
-                return a.intValue();
+            if (a <= 1) {
+                return a;
             } else {
                 return (fibonacci(a - 1) + fibonacci(a - 2));
             }
