@@ -65,6 +65,7 @@ public class Calcolatrice<T extends Number> {
             Double a, b;
             System.out.println(
                     "1. somma\n2. sottrazione\n3. moltiplicazione\n4. divisione\n5. fattoriale\n6. esponenziale\n7. numero della sequenza di fibonacci\n8. esci");
+            System.out.print("inserisci l'opzione: ");
             scelta = in.nextInt();
             switch (scelta) {
                 case 1:
