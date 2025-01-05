@@ -155,6 +155,7 @@ public class Calcolatrice<T extends Number> {
                     break;
             }
         } while (scelta != 8);
+        in.close();
 
     }
 
