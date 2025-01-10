@@ -141,53 +141,41 @@ public class Persona7 {
     }
 
     public void setDataDiNascita(String dataDiNascita) throws Exception {
-        if (dataDiNascita != null) {
-            int g = 0, m = 0, y = 0, contatore = 0;
-            int[] mesi = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-            String[] str;
-
-            for (int i = 0; i < dataDiNascita.length(); i++) {
-                if (dataDiNascita.charAt(i) == '/') {
-                    contatore++;
-                }
-            }
-
-            if (contatore != 2) {
-                throw new Exception(
-                        "Bisogna separare giorni, mesi e anni da uno / (in totale ci dovrebbero essere solo 2 /)");
-            }
-
-            if (dataDiNascita.length() != 10) {
-                throw new Exception("La data deve essere scritta nel formato dd/mm/yyyy");
-            } else {
-                str = dataDiNascita.split("/");
-                g = Integer.parseInt(str[0]);
-                m = Integer.parseInt(str[1]);
-                y = Integer.parseInt(str[2]);
-
-                if (m < 1) {
-                    throw new Exception("Il mese NON può essere minore di 1");
-                } else if (m > 12) {
-                    throw new Exception("Il mese inserito NON può essere maggiore di 12");
-                }
-
-                if (y < 1000 || y > 9999) {
-                    throw new Exception("L'anno DEVE avere 4 cifre");
-                } else if (y % 4 == 0) {
-                    mesi[1] = 29;
-                }
-
-                if (g < 1) {
-                    throw new Exception("Il giorno NON può essere minore di 1");
-                } else if (g > mesi[m - 1]) {
-                    throw new Exception("Il giorno inserito NON può essere maggiore di " + mesi[m - 1]);
-                }
-            }
-
-            this.dataDiNascita = dataDiNascita;
-        } else {
-            throw new Exception("La data di nascita non può essere null");
+        if (dataDiNascita == null) {
+            throw new Exception("hai inserito una data null");
         }
+
+        if (dataDiNascita.length() != 10) {
+            throw new Exception("la data deve avere formato dd/mm/yyyy");
+        }
+
+        String[] dataDiNascitaSi = dataDiNascita.split("/");
+        int giorno = Integer.parseInt(dataDiNascitaSi[0]);
+        int mese = Integer.parseInt(dataDiNascitaSi[1]);
+        int anno = Integer.parseInt(dataDiNascitaSi[2]);
+
+        int[] giorni = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+        //mese
+        if (mese < 0 || mese > 12) {
+            throw new Exception("il mese deve essere compreso tra 0 e 12");
+        }
+
+        //anno
+        if (anno < 1000 || anno > 9999) {
+            throw new Exception("l'anno deve essere compreso tra 1000 e 9999");
+        }
+        //bisestile
+        if (anno % 4 == 0) {
+            giorni[1] = 29;
+        }
+
+        //giorno
+        if (giorno > giorni[mese - 1] || giorno < 0) {
+            throw new Exception("giorno deve essere compreso tra 0 e " + giorni[mese - 1]);
+        }
+
+        this.dataDiNascita = dataDiNascita;
     }
 
     public String getEmail() {
@@ -203,7 +191,7 @@ public class Persona7 {
             if (p.matcher(email).matches()) {
                 this.email = email;
             } else {
-                throw new Exception("L'Email deve avere il formato mail@mail.com  es mail@gmail.com");
+                throw new Exception("L'Email deve avere il formato mail@mail.com");
             }
         }
     }
@@ -228,22 +216,25 @@ public class Persona7 {
             Pattern special = Pattern.compile(".[!?\\.,\\-_@#%]+.");
 
             if (maiuscola.matcher(password).find()) {
-                if (minuscola.matcher(password).find()) {
-                    if (num.matcher(password).matches()) {
-                        if (special.matcher(password).matches()) {
-                            this.password = password;
-                        } else {
-                            throw new Exception(
-                                    "La password deve contenere almeno un carattere speciale (! ? . , - _ @ # %)");
-                        }
-                    } else {
-                        throw new Exception("La password deve contenere almeno 3 numeri");
-                    }
-                } else {
-                    throw new Exception("La password deve contenere almeno una lettera minuscola");
-                }
+
             } else {
                 throw new Exception("La password deve contenere almeno una lettera maiuscola");
+            }
+            
+            if (minuscola.matcher(password).find()) {
+            } else {
+                throw new Exception("La password deve contenere almeno una lettera minuscola");
+            }
+            if (num.matcher(password).matches()) {
+            } else {
+                throw new Exception("La password deve contenere almeno 3 numeri");
+            }
+            
+            if (special.matcher(password).matches()) {
+                this.password = password;
+            } else {
+                throw new Exception(
+                        "La password deve contenere almeno un carattere speciale (! ? . , - _ @ # %)");
             }
         }
     }
@@ -282,13 +273,13 @@ public class Persona7 {
     public String info() {
         String s = "";
 
-        s = "Altezza        : " + altezza + "\n" +
-            "Cognome:       : " + cognome + "\n" +
-            "Nome           : " + nome + "\n" +
-            "Peso           : " + peso + "\n" +
-            "Data di nascita: " + dataDiNascita + "\n" +
-            "Email          : " + email + "\n" +
-            "Password       : " + password + "\n";
+        s = "Altezza        : " + altezza + "\n"
+                + "Cognome:       : " + cognome + "\n"
+                + "Nome           : " + nome + "\n"
+                + "Peso           : " + peso + "\n"
+                + "Data di nascita: " + dataDiNascita + "\n"
+                + "Email          : " + email + "\n"
+                + "Password       : " + password + "\n";
 
         return s;
     }
