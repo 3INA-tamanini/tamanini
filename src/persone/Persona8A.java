@@ -1,10 +1,11 @@
-package persona7;
+package persone;
 
+import dataEasy.DataEasy;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.regex.*;
 
-public class Persona7 {
+public class Persona8A {
 
     private Double altezza;
     private String cognome;
@@ -14,14 +15,13 @@ public class Persona7 {
     private String email;
     private String password;
 
-    private static int numeroIstanze;
+    protected static int numeroIstanze;
 
-    public Persona7() {
+    public Persona8A() {
         numeroIstanze++;
     }
 
-    public Persona7(Double altezza, String cognome, String nome, Float peso, String dataDiNascita, String email,
-            String password) throws Exception {
+    public Persona8A(Double altezza, String cognome, String nome, Float peso, String dataDiNascita, String email, String password) throws Exception {
         setAltezza(altezza);
         setCognome(cognome);
         setNome(nome);
@@ -32,14 +32,14 @@ public class Persona7 {
         numeroIstanze++;
     }
 
-    public Persona7(Persona7 p) throws Exception {
-        if (p != null) {
-            this.altezza = p.altezza;
-            this.nome = p.nome;
-            this.dataDiNascita = p.dataDiNascita;
+    public Persona8A(Persona8A persona) throws Exception {
+        if (persona != null) {
+            this.altezza = persona.altezza;
+            this.nome = persona.nome;
+            this.dataDiNascita = persona.dataDiNascita;
             numeroIstanze++;
         } else {
-            throw new Exception("L'oggetto deve essere diverso da null");
+            throw new Exception("L'oggetto non può essere null");
         }
     }
 
@@ -47,17 +47,17 @@ public class Persona7 {
         return altezza;
     }
 
-    public void setAltezza(Double a) throws Exception {
-        if (a != null) {
-            Double n1 = Math.random() + 1;
-            Double n2 = Math.random();
-            if (a >= n2 && a <= n1) {
-                this.altezza = a;
+    public void setAltezza(Double altezza) throws Exception {
+        if (altezza != null) {
+            Double r1 = Math.random() + 1;
+            Double r2 = Math.random();
+            if (altezza >= r2 && altezza <= r1) {
+                this.altezza = altezza;
             } else {
-                throw new Exception("L'altezza deve essere compresa tra " + n1 + " e " + n2);
+                throw new Exception("L'altezza deve essere compresa tra " + r1 + " e " + r2);
             }
         } else {
-            throw new Exception("L'altezza deve essere diversa da null");
+            throw new Exception("L'altezza non può essere null");
         }
     }
 
@@ -67,7 +67,7 @@ public class Persona7 {
 
     public void setCognome(String cognome) throws Exception {
         if (cognome == null) {
-            throw new Exception("Il cognome deve essere diverso da null");
+            throw new Exception("Il cognome NON può essere null");
         } else {
             Pattern p = Pattern.compile("^[A-Z]");
             if (p.matcher(cognome).find()) {
@@ -92,7 +92,7 @@ public class Persona7 {
         } else {
             Pattern separazione = Pattern.compile(" +");
             Pattern lettere = Pattern.compile("^[A-Z][a-z]*$");
-            Pattern num = Pattern.compile(".\\d.");
+            Pattern num = Pattern.compile(".*\\d.*");
             String[] s = separazione.split(nome);
 
             if (s.length == 2) {
@@ -129,53 +129,19 @@ public class Persona7 {
     }
 
     public void setPeso(Float peso) throws Exception {
-        if (peso == null) {
+        if(peso == null){
             throw new Exception("Il peso non può essere null");
-        } else {
+        }else{
             this.peso = peso;
         }
     }
-
+   
     public String getDataDiNascita() {
         return dataDiNascita;
     }
 
     public void setDataDiNascita(String dataDiNascita) throws Exception {
-        if (dataDiNascita == null) {
-            throw new Exception("hai inserito una data null");
-        }
-
-        if (dataDiNascita.length() != 10) {
-            throw new Exception("la data deve avere formato dd/mm/yyyy");
-        }
-
-        String[] dataDiNascitaSi = dataDiNascita.split("/");
-        int giorno = Integer.parseInt(dataDiNascitaSi[0]);
-        int mese = Integer.parseInt(dataDiNascitaSi[1]);
-        int anno = Integer.parseInt(dataDiNascitaSi[2]);
-
-        int[] giorni = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-
-        //mese
-        if (mese < 0 || mese > 12) {
-            throw new Exception("il mese deve essere compreso tra 0 e 12");
-        }
-
-        //anno
-        if (anno < 1000 || anno > 9999) {
-            throw new Exception("l'anno deve essere compreso tra 1000 e 9999");
-        }
-        //bisestile
-        if (anno % 4 == 0) {
-            giorni[1] = 29;
-        }
-
-        //giorno
-        if (giorno > giorni[mese - 1] || giorno < 0) {
-            throw new Exception("giorno deve essere compreso tra 0 e " + giorni[mese - 1]);
-        }
-
-        this.dataDiNascita = dataDiNascita;
+        DataEasy d = new DataEasy(dataDiNascita);
     }
 
     public String getEmail() {
@@ -183,16 +149,16 @@ public class Persona7 {
     }
 
     public void setEmail(String email) throws Exception {
-        if (email == null) {
+        if(email == null){
             throw new Exception("L'Email non può essere null");
-        } else {
-            Pattern p = Pattern.compile("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,5}");
-
-            if (p.matcher(email).matches()) {
-                this.email = email;
-            } else {
-                throw new Exception("L'Email deve avere il formato mail@mail.com");
-            }
+        }else{
+           Pattern p = Pattern.compile("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,5}");
+           
+           if(p.matcher(email).matches()){
+               this.email = email;
+           }else{
+               throw new Exception("L'Email deve avere il formato mail@mail.com  es mail@gmail.com");
+           }
         }
     }
 
@@ -201,44 +167,40 @@ public class Persona7 {
     }
 
     public void setPassword(String password) throws Exception {
-        if (password == null) {
+        if(password == null){
             throw new Exception("La password non può essere null");
-        } else {
-            if (password.length() < 8) {
+        }else{
+            if(password.length() < 8){
                 throw new Exception("La password deve essere lunga almeno 8 caratteri");
-            } else if (password.length() > 20) {
-                throw new Exception("La password NON deve essere più lunga di 20 caratteri");
+            }else if(password.length() > 16){
+                throw new Exception("La password NON deve essere più lunga di 16 caratteri");
             }
-
-            Pattern maiuscola = Pattern.compile(".[A-Z].");
-            Pattern minuscola = Pattern.compile(".[a-z].");
-            Pattern num = Pattern.compile(".\\d.\\d.\\d.");
-            Pattern special = Pattern.compile(".[!?\\.,\\-_@#%]+.");
-
-            if (maiuscola.matcher(password).find()) {
-
-            } else {
+           
+            Pattern maiuscola = Pattern.compile(".*[A-Z].*");
+            Pattern minuscola = Pattern.compile(".*[a-z].*");
+            Pattern num = Pattern.compile(".*\\d.*\\d.*\\d.*");
+            Pattern special = Pattern.compile(".*[!?\\.,\\-_@#%]+.*");
+           
+            if(maiuscola.matcher(password).find()){
+                if(minuscola.matcher(password).find()){
+                    if(num.matcher(password).matches()){
+                        if(special.matcher(password).matches()){
+                            this.password = password;      
+                        }else{
+                            throw new Exception("La password deve contenere almeno un carattere speciale (! ? . , - _ @ # %)");
+                        }
+                    }else{
+                        throw new Exception("La password deve contenere almeno 3 numeri");
+                    }
+                }else{
+                    throw new Exception("La password deve contenere almeno una lettera minuscola");
+                }
+            }else{
                 throw new Exception("La password deve contenere almeno una lettera maiuscola");
-            }
-            
-            if (minuscola.matcher(password).find()) {
-            } else {
-                throw new Exception("La password deve contenere almeno una lettera minuscola");
-            }
-            if (num.matcher(password).matches()) {
-            } else {
-                throw new Exception("La password deve contenere almeno 3 numeri");
-            }
-            
-            if (special.matcher(password).matches()) {
-                this.password = password;
-            } else {
-                throw new Exception(
-                        "La password deve contenere almeno un carattere speciale (! ? . , - _ @ # %)");
             }
         }
     }
-
+   
     public static int getNumeroIstanze() {
         return numeroIstanze;
     }
@@ -273,27 +235,27 @@ public class Persona7 {
     public String info() {
         String s = "";
 
-        s = "Altezza        : " + altezza + "\n"
-                + "Cognome:       : " + cognome + "\n"
-                + "Nome           : " + nome + "\n"
-                + "Peso           : " + peso + "\n"
-                + "Data di nascita: " + dataDiNascita + "\n"
-                + "Email          : " + email + "\n"
-                + "Password       : " + password + "\n";
+        s = "Altezza        : " + altezza + "\n" +
+            "Cognome:       : " + cognome + "\n" +  
+            "Nome           : " + nome + "\n" +
+            "Peso           : " + peso + "\n" +
+            "Data di nascita: " + dataDiNascita + "\n" +
+            "Email          : " + email + "\n" +
+            "Password       : " + password + "\n";
 
         return s;
     }
 
-    public Boolean verificaOmonimia(Persona7 p) throws Exception {
+    public Boolean verificaOmonimia(Persona8A persona) throws Exception {
         Boolean is = false;
 
-        if (p != null) {
-            if (p.nome != null) {
-                if (this.nome.equals(p.nome)) {
+        if (persona != null) {
+            if (persona.nome != null) {
+                if (this.nome.equals(persona.nome)) {
                     is = true;
                 }
             } else {
-                throw new Exception("Il nome deve essere diverso da null");
+                throw new Exception("Il nomoe deve essere diverso da null");
             }
         } else {
             throw new Exception("L'oggetto inserito NON deve essere null");
