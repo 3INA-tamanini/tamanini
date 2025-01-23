@@ -1,6 +1,8 @@
 package persone;
 
-import java.util.regex.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import dataEasy.DataEasy;
 
 public class Persona8A {
@@ -14,8 +16,13 @@ public class Persona8A {
     private String password;
 
     protected static int numeroIstanze;
-
+    /**
+     * di default mette la data di nascita come data di oggi
+     */
     public Persona8A() {
+        LocalDate today = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        dataDiNascita = today.format(formatter);
         numeroIstanze++;
     }
 
@@ -31,26 +38,15 @@ public class Persona8A {
         numeroIstanze++;
     }
 
-    public Persona8A(Persona8A persona) throws Exception {
-        if (persona != null) {
-            this.altezza = persona.altezza;
-            this.nome = persona.nome;
-            this.dataDiNascita = persona.dataDiNascita;
-            numeroIstanze++;
-        } else {
-            throw new Exception("L'oggetto non può essere null");
-        }
-    }
-
     public Double getAltezza() {
         return altezza;
     }
 
     public void setAltezza(Double altezza) throws Exception {
         if (altezza != null) {
-            Double r1 = Math.random() + 1;
-            Double r2 = Math.random();
-            if (altezza >= r2 && altezza <= r1) {
+            Double r1 = Math.random();
+            Double r2 = Math.random() + 2;
+            if (altezza <= r2 && altezza >= r1) {
                 this.altezza = altezza;
             } else {
                 throw new Exception("L'altezza deve essere compresa tra " + r1 + " e " + r2);
@@ -68,8 +64,7 @@ public class Persona8A {
         if (cognome == null) {
             throw new Exception("Il cognome NON può essere null");
         } else {
-            Pattern p = Pattern.compile("^[A-Z]");
-            if (p.matcher(cognome).find()) {
+            if (cognome.matches("^[A-Z].*")) {
                 if (cognome.length() < 5) {
                     throw new Exception("Il cognome deve essere lungo almeno 5 caratteri");
                 } else {
@@ -89,11 +84,8 @@ public class Persona8A {
         if (nome == null) {
             throw new Exception("Il nome NON può essere null");
         } else {
-            Pattern separazione = Pattern.compile(" +");
-            Pattern lettere = Pattern.compile("^[A-Z][a-z]*$");
-            Pattern num = Pattern.compile(".\\d.");
-            String[] s = separazione.split(nome);
-
+            String[] s = nome.split(" +"); 
+    
             if (s.length == 2) {
                 if (s[0].length() < 3 && s[1].length() < 3) {
                     throw new Exception("I due nomi devono essere lunghi almeno 3 caratteri");
@@ -104,24 +96,24 @@ public class Persona8A {
                 }
             } else if (s.length == 1) {
                 if (s[0].length() < 3) {
-                    throw new Exception("Il nome deve essre lungo almeno 3 caratteri");
+                    throw new Exception("Il nome deve essere lungo almeno 3 caratteri");
                 }
             } else {
                 throw new Exception("Possono essere inseriti solo 2 nomi");
             }
-
-            for (int i = 0; i < s.length; i++) {
-                if (num.matcher(s[i]).find()) {
+    
+            for (String parte : s) {
+                if (parte.matches(".*\\d.*")) {
                     throw new Exception("Il nome NON può contenere caratteri diversi dalle lettere");
-                } else if (lettere.matcher(s[i]).find()) {
-                    this.nome = nome;
-                } else {
+                } else if (!parte.matches("^[A-Z][a-z]*$")) {
                     throw new Exception("Il nome deve avere il primo carattere maiuscolo e i restanti minuscoli");
                 }
             }
+    
+            this.nome = nome;
         }
-
     }
+    
 
     public Float getPeso() {
         return peso;
@@ -197,9 +189,7 @@ public class Persona8A {
         if (email == null) {
             throw new Exception("L'Email non può essere null");
         } else {
-            Pattern p = Pattern.compile("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,5}");
-
-            if (p.matcher(email).matches()) {
+            if (email.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,5}")) {
                 this.email = email;
             } else {
                 throw new Exception("L'Email deve avere il formato mail@mail.com es mail@gmail.com");
@@ -221,15 +211,10 @@ public class Persona8A {
                 throw new Exception("La password NON deve essere più lunga di 20 caratteri");
             }
 
-            Pattern maiuscola = Pattern.compile(".*[A-Z].*");
-            Pattern minuscola = Pattern.compile(".*[a-z].*");
-            Pattern num = Pattern.compile(".*\\d.*\\d.*\\d.*");
-            Pattern special = Pattern.compile(".*[!?\\.,\\-_@#%]+.*");
-
-            if (maiuscola.matcher(password).find()) {
-                if (minuscola.matcher(password).find()) {
-                    if (num.matcher(password).matches()) {
-                        if (special.matcher(password).matches()) {
+            if (password.matches(".*[A-Z].*")) {
+                if (password.matches(".*[a-z].*")) {
+                    if (password.matches(".*\\d.*\\d.*\\d.*")) {
+                        if (password.matches(".*[!?\\.,\\-_@#%]+.*")) {
                             this.password = password;
                         } else {
                             throw new Exception(
@@ -289,5 +274,25 @@ public class Persona8A {
         }
 
         return is;
+    }
+
+    public static void main(String[] args) throws Exception {
+        try {
+            Persona8A persona8A1 = new Persona8A();
+            Persona8A persona8A2 = new Persona8A(1.95, "Rossi", "Mario", 75.5f, "12/12/1912", "as@cd.it", "Pass123!");
+
+            System.out.println("Persona8A1: \n" + persona8A1.info() + "\n");
+            System.out.println("Persona8A2: \n" + persona8A2.info());
+            System.out.println("eta: " + persona8A2.calcolaEta());
+
+            if (persona8A2.verificaOmonimia(persona8A2))
+                System.out.println("omonimi");
+            else
+                System.out.println("non omonimi");
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
     }
 }
