@@ -29,15 +29,15 @@ public class Studente1 extends Persona8A {
             throw new Exception("La classe non può essere null");
         }
 
-        if (classe >= 1) {
-            if (classe <= 5) {
-                this.classe = classe;
-            } else {
-                throw new Exception("La classe deve essere minore o uguale di 5");
-            }
-        } else {
+        if (classe < 1) {
             throw new Exception("La classe deve essere maggiore o uguale di 1");
         }
+
+        if (classe > 5) {
+            throw new Exception("La classe deve essere minore o uguale di 5");
+        }
+
+        this.classe = classe;
     }
 
     public Boolean getIsRipetente() {
@@ -86,7 +86,6 @@ public class Studente1 extends Persona8A {
     }
 
     public void rimuoviVoto(Integer posizione) throws Exception {
-        int j = 0;
 
         if (voti == null) {
             throw new Exception("Per rimuovere un voto deve prima essercene almeno uno");
@@ -103,6 +102,7 @@ public class Studente1 extends Persona8A {
             voti = temp;
         } else {
             Float temp[] = new Float[voti.length - 1];
+            int j = 0;
             for (int i = 0; i < voti.length; i++) {
                 if (i != posizione) {
                     temp[j] = voti[i];
@@ -147,15 +147,15 @@ public class Studente1 extends Persona8A {
         String s = "", vot = "";
 
         if (voti != null) {
-            for (int i = 0; i < voti.length; i++) {
-                if (i == 0) {
-                    vot = vot + voti[0];
-                } else {
-                    vot = vot + ", " + voti[i];
-                }
-            }
-        } else {
             vot = "Non ci sono voti";
+        }
+
+        for (int i = 0; i < voti.length; i++) {
+            if (i == 0) {
+                vot = vot + voti[0];
+            } else {
+                vot = vot + ", " + voti[i];
+            }
         }
 
         s = SCUOLA + "\n"
@@ -172,7 +172,7 @@ public class Studente1 extends Persona8A {
 
     private Float votoMinore() {
         if (voti == null) {
-            return 0f;
+            return null;
         }
         if (voti.length == 1) {
             return voti[0];
@@ -180,10 +180,9 @@ public class Studente1 extends Persona8A {
 
         Float min = voti[0];
 
-        for (int i = 0; i < voti.length; i++) {
+        for (int i = 1; i < voti.length; i++) {
             if (voti[i] < min) {
                 min = voti[i];
-                i = -1;
             }
         }
 
@@ -200,10 +199,9 @@ public class Studente1 extends Persona8A {
 
         Float max = voti[0];
 
-        for (int i = 0; i < voti.length; i++) {
+        for (int i = 1; i < voti.length; i++) {
             if (voti[i] > max) {
                 max = voti[i];
-                i = -1;
             }
         }
 
@@ -217,10 +215,10 @@ public class Studente1 extends Persona8A {
         }
 
         for (int i = 0; i < voti.length; i++) {
-            media = media + voti[i];
+            media += voti[i];
         }
 
-        media = media / voti.length;
+        media /= voti.length;
 
         return media;
     }
