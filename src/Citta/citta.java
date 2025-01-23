@@ -1,6 +1,6 @@
 package citta;
 
-import persona7.Persona7;
+import persone.Persona7;
 
 public class Citta {
 

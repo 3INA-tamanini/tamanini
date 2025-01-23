@@ -1,4 +1,4 @@
-package studente;
+package studenti;
 
 import java.util.Scanner;
 

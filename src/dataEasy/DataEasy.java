@@ -3,11 +3,11 @@ package dataEasy;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.DateTimeException;
-import java.time.Month;
-import java.time.format.TextStyle;
-import java.util.Locale;
-import java.time.temporal.ChronoUnit;
 import java.time.Period;
+import java.time.format.TextStyle;
+import java.time.temporal.ChronoUnit;
+import java.util.Locale;
+import java.util.regex.Pattern;
 
 public class DataEasy {
 
@@ -17,28 +17,34 @@ public class DataEasy {
     private Integer anno;
 
     public DataEasy() {
+        LocalDate l = LocalDate.now();
+
+        this.data = l.format(DateTimeFormatter.ofPattern("dd/M/yyyy"));
+        this.giorno = l.getDayOfMonth();
+        this.mese = l.getMonthValue();
+        this.anno = l.getYear();
+
     }
 
     public DataEasy(String data) throws Exception {
-        DateTimeFormatter l = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate lD = LocalDate.parse(data, l);
-
-        setGiorno(lD.getDayOfMonth());
-        setMese(lD.getMonthValue());
-        setAnno(lD.getYear());
+        setData(data);
     }
 
     public DataEasy(Integer giorno, Integer mese, Integer anno) throws Exception {
-        setGiorno(giorno);
-        setMese(mese);
         setAnno(anno);
+        setMese(mese);
+        setGiorno(giorno);
+
+        LocalDate data = LocalDate.of(this.anno, this.mese, this.giorno);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        this.data = data.format(formatter);
     }
 
-    public DataEasy(DataEasy data) {
-        this.data = data.getData();
-        this.giorno = data.getGiorno();
-        this.mese = data.getMese();
-        this.anno = data.getAnno();
+    public DataEasy(DataEasy data) throws Exception {
+        setData(data.data);
+        setAnno(data.anno);
+        setGiorno(data.giorno);
+        setMese(data.mese);
     }
 
     public String getData() {
@@ -46,7 +52,31 @@ public class DataEasy {
     }
 
     public void setData(String data) throws Exception {
-        this.data = data;
+        LocalDate dataOdierna = LocalDate.now();
+
+        if (data == null) {
+            throw new Exception("Data Nulla!");
+        } else {
+            if (!Pattern.matches("^[0-9]{2}/[0-9]{2}/[0-9]{4}", data)) {
+                throw new Exception("Sintassi Errata!");
+            } else {
+                String[] s = data.split("/");
+                int giorno = Integer.parseInt(s[0]);
+                int mese = Integer.parseInt(s[1]);
+                int anno = Integer.parseInt(s[2]);
+
+                LocalDate dataInserita = LocalDate.of(anno, mese, giorno);
+
+                if (dataInserita.isAfter(dataOdierna)) {
+                    throw new Exception("Data Errata!");
+                } else {
+                    this.data = data;
+                    this.giorno = giorno;
+                    this.mese = mese;
+                    this.anno = anno;
+                }
+            }
+        }
     }
 
     public Integer getGiorno() {
@@ -54,16 +84,17 @@ public class DataEasy {
     }
 
     public void setGiorno(Integer giorno) throws Exception {
-        if(giorno==null)
-            throw new Exception("giorno null");
-        
-        try {
-            LocalDate l = LocalDate.of(anno, mese, giorno);
-        } catch (Exception e) {
-            throw new Exception("giorno non valido");
+        if (giorno == null) {
+            throw new Exception("Giorno Nullo!");
+        } else {
+
+            try {
+                LocalDate dataTemp = LocalDate.of(anno, mese, giorno);
+            } catch (DateTimeException e) {
+                throw new Exception("Giorno Sbagliato per il mese e anno specificato!");
+            }
+            this.giorno = giorno;
         }
-        
-        this.giorno = giorno;
     }
 
     public Integer getMese() {
@@ -71,15 +102,9 @@ public class DataEasy {
     }
 
     public void setMese(Integer mese) throws Exception {
-        if(mese==null)
-            throw new Exception("mese null");
-        
-        try {
-            LocalDate l = LocalDate.of(anno, mese, giorno);
-        } catch (Exception e) {
-            throw new Exception("mese non valido");
+        if (mese == null || mese < 1 || mese > 12) {
+            throw new Exception("Mese non valido!");
         }
-        
         this.mese = mese;
     }
 
@@ -88,15 +113,9 @@ public class DataEasy {
     }
 
     public void setAnno(Integer anno) throws Exception {
-        if(anno==null)
-            throw new Exception("anno null");
-        
-        try {
-            LocalDate l = LocalDate.of(anno, mese, giorno);
-        } catch (Exception e) {
-            throw new Exception("anno non valido");
+        if (anno == null || anno < 1) {
+            throw new Exception("Anno non valido!");
         }
-        
         this.anno = anno;
     }
 
@@ -109,112 +128,85 @@ public class DataEasy {
         return g;
     }
 
-    public static Integer differenzaInGiorni(DataEasy dataAntecedente, DataEasy dataSuccessiva) throws Exception {
-        Integer diff = 0;
-        LocalDate lAntecedente = LocalDate.of(dataAntecedente.getAnno(), dataAntecedente.getMese(), dataAntecedente.getGiorno());
-        LocalDate lSuccessivo = LocalDate.of(dataSuccessiva.getAnno(), dataSuccessiva.getMese(), dataSuccessiva.getGiorno());
+    public static Integer differenzaInGiorni(DataEasy dataAntecedente, DataEasy dataSuccessiva) {
+        LocalDate data1 = LocalDate.of(dataAntecedente.getAnno(), dataAntecedente.getMese(),
+                dataAntecedente.getGiorno());
+        LocalDate data2 = LocalDate.of(dataSuccessiva.getAnno(), dataSuccessiva.getMese(), dataSuccessiva.getGiorno());
 
-        diff = (int) ChronoUnit.DAYS.between(lAntecedente, lSuccessivo);
+        long differenza = java.time.temporal.ChronoUnit.DAYS.between(data1, data2);
 
-        if (diff < 0) {
-            throw new Exception("Inserire prima la data più vecchia e dopo la data più recente");
-        }
-
-        return diff;
+        return (int) differenza;
     }
 
-    public static Integer differenzaInSettimane(DataEasy dataAntecedente, DataEasy dataSuccessiva) throws Exception {
-        Integer diff = 0;
+    public static Integer differenzaInSettimane(DataEasy dataAntecedente, DataEasy dataSuccessiva) {
+        LocalDate data1 = LocalDate.of(dataAntecedente.getAnno(), dataAntecedente.getMese(),
+                dataAntecedente.getGiorno());
+        LocalDate data2 = LocalDate.of(dataSuccessiva.getAnno(), dataSuccessiva.getMese(), dataSuccessiva.getGiorno());
 
-        LocalDate lAntecedente = LocalDate.of(dataAntecedente.getAnno(), dataAntecedente.getMese(), dataAntecedente.getGiorno());
-        LocalDate lSuccessivo = LocalDate.of(dataSuccessiva.getAnno(), dataSuccessiva.getMese(), dataSuccessiva.getGiorno());
+        long differenza = ChronoUnit.WEEKS.between(data1, data2);
 
-        diff = (int) ChronoUnit.WEEKS.between(lAntecedente, lSuccessivo);
-
-        if (diff < 0) {
-            throw new Exception("Inserire prima la data più vecchia e dopo la data più recente");
-        }
-
-        return diff;
+        return (int) differenza;
     }
 
-    public static Integer differenzaInMesi(DataEasy dataAntecedente, DataEasy dataSuccessiva) throws Exception {
-        Integer diff = 0;
+    public static Integer differenzaInMesi(DataEasy dataAntecedente, DataEasy dataSuccessiva) {
+        LocalDate data1 = LocalDate.of(dataAntecedente.getAnno(), dataAntecedente.getMese(),
+                dataAntecedente.getGiorno());
+        LocalDate data2 = LocalDate.of(dataSuccessiva.getAnno(), dataSuccessiva.getMese(), dataSuccessiva.getGiorno());
 
-        LocalDate lAntecedente = LocalDate.of(dataAntecedente.getAnno(), dataAntecedente.getMese(), dataAntecedente.getGiorno());
-        LocalDate lSuccessivo = LocalDate.of(dataSuccessiva.getAnno(), dataSuccessiva.getMese(), dataSuccessiva.getGiorno());
+        long differenza = ChronoUnit.MONTHS.between(data1, data2);
 
-        diff = (int) ChronoUnit.MONTHS.between(lAntecedente, lSuccessivo);
-
-        if (diff < 0) {
-            throw new Exception("Inserire prima la data più vecchia e dopo la data più recente");
-        }
-
-        return diff;
+        return (int) differenza;
     }
 
-    public static Integer differenzaInAnni(DataEasy dataAntecedente, DataEasy dataSuccessiva) throws Exception {
-        Integer diff = 0;
+    public static Integer differenzaInAnni(DataEasy dataAntecedente, DataEasy dataSuccessiva) {
+        LocalDate data1 = LocalDate.of(dataAntecedente.getAnno(), dataAntecedente.getMese(),
+                dataAntecedente.getGiorno());
+        LocalDate data2 = LocalDate.of(dataSuccessiva.getAnno(), dataSuccessiva.getMese(), dataSuccessiva.getGiorno());
 
-        LocalDate lAntecedente = LocalDate.of(dataAntecedente.getAnno(), dataAntecedente.getMese(), dataAntecedente.getGiorno());
-        LocalDate lSuccessivo = LocalDate.of(dataSuccessiva.getAnno(), dataSuccessiva.getMese(), dataSuccessiva.getGiorno());
+        long differenza = ChronoUnit.YEARS.between(data1, data2);
 
-        diff = (int) ChronoUnit.YEARS.between(lAntecedente, lSuccessivo);
-
-        if (diff < 0) {
-            throw new Exception("Inserire prima la data più vecchia e dopo la data più recente");
-        }
-
-        return diff;
+        return (int) differenza;
     }
 
     public static String differenzaInGiorniMesiAnni(DataEasy dataAntecedente, DataEasy dataSuccessiva) {
-        String s = "";
-        int g, m, y;
+        String diff = "";
 
-        Period p = Period.between(LocalDate.of(dataAntecedente.getAnno(), dataAntecedente.getMese(), dataAntecedente.getGiorno()), LocalDate.of(dataSuccessiva.getAnno(), dataSuccessiva.getMese(), dataSuccessiva.getGiorno()));
-        g = p.getDays();
-        m = p.getMonths();
-        y = p.getYears();
+        Period p = Period.between(
+                LocalDate.of(dataAntecedente.getAnno(), dataAntecedente.getMese(), dataAntecedente.getGiorno()),
+                LocalDate.of(dataSuccessiva.getAnno(), dataSuccessiva.getMese(), dataSuccessiva.getGiorno()));
+        int g = p.getDays();
+        int m = p.getMonths();
+        int y = p.getYears();
 
-        s = y + " anni " + m + " mesi " + g + " giorni";
+        for (int i = 0; i < 3; i++) {
+            if (y != 0 && i == 0) {
+                if (y > 1) {
+                    diff = y + " anni ";
+                } else {
+                    diff = y + " anno ";
+                }
+            } else if (m != 0 && i == 1) {
+                if (m > 1) {
+                    diff = diff + m + " mesi ";
+                } else {
+                    diff = diff + m + " mese ";
+                }
+            } else if (g != 0 && i == 2) {
+                if (g > 1) {
+                    diff = diff + g + " giorni";
+                } else {
+                    diff = diff + g + " giorno";
+                }
+            }
+        }
 
-        return s;
+        return diff;
     }
 
     @Override
     public String toString() {
-        String s = "", m;
-        int g, y;
-
-        LocalDate l = LocalDate.of(anno, mese, giorno);
-
-        g = l.getDayOfMonth();
-        m = l.getMonth().getDisplayName(TextStyle.FULL, Locale.ITALY);
-        y = l.getYear();
-
-        s = giornoDellaSettimana() + " " + g + " " + m + " " + y;
-
-        return s;
-    }
-
-    public static void main(String[] args) throws Exception {
-        DataEasy d = new DataEasy(11, 1, 2025);
-        DataEasy d1 = new DataEasy(1, 12, 2023);
-        //DataEasy d = new DataEasy("11/01/2025");  //con stringa
-
-        try {
-            System.out.println(d.toString());
-            System.out.println(differenzaInGiorni(d, d1));
-            System.out.println(differenzaInSettimane(d1, d));
-            System.out.println(differenzaInMesi(d1, d));
-            System.out.println(differenzaInAnni(d1, d));
-
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        System.out.println(differenzaInGiorniMesiAnni(d1, d));
-
+        String testo = "";
+        testo = giorno + "/" + mese + "/" + anno;
+        return testo;
     }
 }

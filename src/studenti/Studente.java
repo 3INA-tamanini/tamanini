@@ -1,4 +1,4 @@
-package studente;
+package studenti;
 
 public class Studente {
     private String nome, cognome, esito;

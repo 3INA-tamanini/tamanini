@@ -211,35 +211,36 @@ public class Persona7 {
     }
 
     public void setPassword(String password) throws Exception {
-        if(password == null){
+        if (password == null) {
             throw new Exception("La password non può essere null");
-        }else{
-            if(password.length() < 8){
+        } else {
+            if (password.length() < 8) {
                 throw new Exception("La password deve essere lunga almeno 8 caratteri");
-            }else if(password.length() > 16){
-                throw new Exception("La password NON deve essere più lunga di 16 caratteri");
+            } else if (password.length() > 20) {
+                throw new Exception("La password NON deve essere più lunga di 20 caratteri");
             }
-           
+
             Pattern maiuscola = Pattern.compile(".*[A-Z].*");
             Pattern minuscola = Pattern.compile(".*[a-z].*");
             Pattern num = Pattern.compile(".*\\d.*\\d.*\\d.*");
             Pattern special = Pattern.compile(".*[!?\\.,\\-_@#%]+.*");
-           
-            if(maiuscola.matcher(password).find()){
-                if(minuscola.matcher(password).find()){
-                    if(num.matcher(password).matches()){
-                        if(special.matcher(password).matches()){
-                            this.password = password;      
-                        }else{
-                            throw new Exception("La password deve contenere almeno un carattere speciale (! ? . , - _ @ # %)");
+
+            if (maiuscola.matcher(password).find()) {
+                if (minuscola.matcher(password).find()) {
+                    if (num.matcher(password).matches()) {
+                        if (special.matcher(password).matches()) {
+                            this.password = password;
+                        } else {
+                            throw new Exception(
+                                    "La password deve contenere almeno un carattere speciale (! ? . , - _ @ # %)");
                         }
-                    }else{
+                    } else {
                         throw new Exception("La password deve contenere almeno 3 numeri");
                     }
-                }else{
+                } else {
                     throw new Exception("La password deve contenere almeno una lettera minuscola");
                 }
-            }else{
+            } else {
                 throw new Exception("La password deve contenere almeno una lettera maiuscola");
             }
         }
