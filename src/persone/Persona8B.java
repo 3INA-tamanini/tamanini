@@ -1,7 +1,7 @@
 package persone;
 
 import java.time.LocalDate;
-import dataEasy.DataEasy;
+import Data.DataEasy;
 
 public class Persona8B {
     private Double altezza;

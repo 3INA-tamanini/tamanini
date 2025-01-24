@@ -1,4 +1,4 @@
-package dataEasy;
+package Data;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -52,7 +52,6 @@ public class DataEasy {
     }
 
     public void setData(String data) throws Exception {
-        LocalDate dataOdierna = LocalDate.now();
 
         if (data == null) {
             throw new Exception("Data Nulla!");
@@ -65,16 +64,12 @@ public class DataEasy {
                 int mese = Integer.parseInt(s[1]);
                 int anno = Integer.parseInt(s[2]);
 
-                LocalDate dataInserita = LocalDate.of(anno, mese, giorno);
-
-                if (dataInserita.isAfter(dataOdierna)) {
-                    throw new Exception("Data Errata!");
-                } else {
+                
                     this.data = data;
                     this.giorno = giorno;
                     this.mese = mese;
                     this.anno = anno;
-                }
+                
             }
         }
     }

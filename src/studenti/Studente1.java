@@ -70,7 +70,7 @@ public class Studente1 extends Persona8A {
             throw new Exception("Il voto non può essere maggiore di 10");
         }
 
-        if (voti == null) {
+        if (voti==null) {
             voti = new Float[1];
             voti[0] = voto;
         } else {

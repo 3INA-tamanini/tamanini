@@ -3,7 +3,7 @@ package persone;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import dataEasy.DataEasy;
+import Data.DataEasy;
 
 public class Persona8A {
 
@@ -16,6 +16,7 @@ public class Persona8A {
     private String password;
 
     protected static int numeroIstanze;
+
     /**
      * di default mette la data di nascita come data di oggi
      */
@@ -84,8 +85,8 @@ public class Persona8A {
         if (nome == null) {
             throw new Exception("Il nome NON può essere null");
         } else {
-            String[] s = nome.split(" +"); 
-    
+            String[] s = nome.split(" +");
+
             if (s.length == 2) {
                 if (s[0].length() < 3 && s[1].length() < 3) {
                     throw new Exception("I due nomi devono essere lunghi almeno 3 caratteri");
@@ -101,7 +102,7 @@ public class Persona8A {
             } else {
                 throw new Exception("Possono essere inseriti solo 2 nomi");
             }
-    
+
             for (String parte : s) {
                 if (parte.matches(".*\\d.*")) {
                     throw new Exception("Il nome NON può contenere caratteri diversi dalle lettere");
@@ -109,11 +110,10 @@ public class Persona8A {
                     throw new Exception("Il nome deve avere il primo carattere maiuscolo e i restanti minuscoli");
                 }
             }
-    
+
             this.nome = nome;
         }
     }
-    
 
     public Float getPeso() {
         return peso;
@@ -132,53 +132,13 @@ public class Persona8A {
     }
 
     public void setDataDiNascita(String dataDiNascita) throws Exception {
-        if (dataDiNascita != null) {
-            int g = 0, m = 0, y = 0, contatore = 0;
-            int[] mesi = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-            String[] str;
-
-            for (int i = 0; i < dataDiNascita.length(); i++) {
-                if (dataDiNascita.charAt(i) == '/') {
-                    contatore++;
-                }
-            }
-
-            if (contatore != 2) {
-                throw new Exception(
-                        "Bisogna separare giorni, mesi e anni da uno / (in totale ci dovrebbero essere solo 2 /)");
-            }
-
-            if (dataDiNascita.length() != 10) {
-                throw new Exception("La data deve essere scritta nel formato dd/mm/yyyy");
-            } else {
-                str = dataDiNascita.split("/");
-                g = Integer.parseInt(str[0]);
-                m = Integer.parseInt(str[1]);
-                y = Integer.parseInt(str[2]);
-
-                if (m < 1) {
-                    throw new Exception("Il mese NON può essere minore di 1");
-                } else if (m > 12) {
-                    throw new Exception("Il mese inserito NON può essere maggiore di 12");
-                }
-
-                if (y < 1000 || y > 9999) {
-                    throw new Exception("L'anno DEVE avere 4 cifre");
-                } else if (y % 4 == 0) {
-                    mesi[1] = 29;
-                }
-
-                if (g < 1) {
-                    throw new Exception("Il giorno NON può essere minore di 1");
-                } else if (g > mesi[m - 1]) {
-                    throw new Exception("Il giorno inserito NON può essere maggiore di " + mesi[m - 1]);
-                }
-            }
-
-            this.dataDiNascita = dataDiNascita;
-        } else {
-            throw new Exception("La data di nascita non può essere null");
+        DataEasy d = new DataEasy(dataDiNascita);
+        DataEasy dataAttuale = new DataEasy();
+        
+        if (DataEasy.differenzaInGiorni(dataAttuale, d) > 0) {
+            throw new Exception("la data non può essere dopo la data odierna");
         }
+        this.dataDiNascita = d.getData();
     }
 
     public String getEmail() {
@@ -247,13 +207,13 @@ public class Persona8A {
         String s = "";
         DataEasy d = new DataEasy(dataDiNascita);
 
-        s = "Altezza        : " + altezza + "\n" +
-            "Cognome:       : " + cognome + "\n" +
-            "Nome           : " + nome + "\n" +
-            "Peso           : " + peso + "\n" +
-            "Data di nascita: " + d.toString() + "\n" +
-            "Email          : " + email + "\n" +
-            "Password       : " + password;
+        s = "Altezza        : " + altezza + "\n"
+                + "Cognome:       : " + cognome + "\n"
+                + "Nome           : " + nome + "\n"
+                + "Peso           : " + peso + "\n"
+                + "Data di nascita: " + dataDiNascita+ "\n"
+                + "Email          : " + email + "\n"
+                + "Password       : " + password;
 
         return s;
     }
@@ -279,20 +239,21 @@ public class Persona8A {
     public static void main(String[] args) throws Exception {
         try {
             Persona8A persona8A1 = new Persona8A();
-            Persona8A persona8A2 = new Persona8A(1.95, "Rossi", "Mario", 75.5f, "12/12/1912", "as@cd.it", "Pass123!");
+            Persona8A persona8A2 = new Persona8A(1.95, "Rossi", "Mario", 75.5f, "24/01/2025", "as@cd.it", "Pass123!");
 
             System.out.println("Persona8A1: \n" + persona8A1.info() + "\n");
             System.out.println("Persona8A2: \n" + persona8A2.info());
             System.out.println("eta: " + persona8A2.calcolaEta());
 
-            if (persona8A2.verificaOmonimia(persona8A2))
+            if (persona8A2.verificaOmonimia(persona8A2)) {
                 System.out.println("omonimi");
-            else
+            } else {
                 System.out.println("non omonimi");
+            }
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
+
     }
 }
