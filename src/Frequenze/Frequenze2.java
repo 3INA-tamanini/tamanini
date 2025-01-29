@@ -23,7 +23,7 @@ public class Frequenze2 {
     }
 
     public void setTotElementi(int totElementi) {
-        this.totElementi = totElementi;
+        this.totElementi = totElementi;    
     }
 
     public int getnElementi() {
