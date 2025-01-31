@@ -1,5 +1,6 @@
 package studenti;
 
+import java.util.Arrays;
 import persone.Persona8A;
 
 public class Studente1 extends Persona8A {
@@ -53,11 +54,24 @@ public class Studente1 extends Persona8A {
     }
 
     public Float[] getVoti() {
-        return voti;
+        return voti.clone();
     }
 
     public void setVoti(Float[] voti) throws Exception {
-        this.voti = voti;
+        if(voti==null)
+            throw new Exception("voti non può essere null");
+        
+        
+        for (int i = 0; i < voti.length; i++) {
+            if(voti[i]==null)
+                throw new Exception("il voto in " + (i+1) + "è null");
+            
+            if(voti[i]<3 || voti[i]>10)
+                throw new Exception("i voti devono essere compresi tra 3 e 10");
+                
+            
+        }
+        this.voti = voti.clone();
 
     }
 
@@ -113,15 +127,17 @@ public class Studente1 extends Persona8A {
         }
     }
 
-    public Boolean promuovi() {
+    public Boolean promuovi() throws Exception {
         Boolean is = false;
 
         if (classe + 1 <= 5) {
             if (mediaVoti() >= 6) {
                 classe++;
                 is = true;
+                setIsRipetente(false);
             }
         }
+        setIsRipetente(true);
 
         return is;
     }
@@ -129,7 +145,7 @@ public class Studente1 extends Persona8A {
     public Boolean promuovi(Integer numeroClassi) {
         Boolean is = false;
 
-        if (mediaVoti() == 10) {
+        if (mediaVoti() == 6) {
             if (classe + numeroClassi <= 5) {
                 classe = classe + numeroClassi;
                 is = true;
@@ -171,41 +187,15 @@ public class Studente1 extends Persona8A {
     }
 
     private Float votoMinore() {
-        if (voti == null) {
-            return null;
-        }
-        if (voti.length == 1) {
-            return voti[0];
-        }
-
-        Float min = voti[0];
-
-        for (int i = 1; i < voti.length; i++) {
-            if (voti[i] < min) {
-                min = voti[i];
-            }
-        }
-
-        return min;
+        Float[] min = voti.clone();
+        Arrays.sort(min);
+        return min[0];
     }
 
     private Float votoMaggiore() {
-        if (voti == null) {
-            return 0f;
-        }
-        if (voti.length == 1) {
-            return voti[0];
-        }
-
-        Float max = voti[0];
-
-        for (int i = 1; i < voti.length; i++) {
-            if (voti[i] > max) {
-                max = voti[i];
-            }
-        }
-
-        return max;
+        Float[] min = voti.clone();
+        Arrays.sort(min);
+        return min[min.length-1];
     }
 
     private Float mediaVoti() {

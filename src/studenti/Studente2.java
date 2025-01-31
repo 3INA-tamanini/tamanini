@@ -12,6 +12,7 @@ public class Studente2 extends Persona8A {
     private ArrayList<Float> voti = new ArrayList<>();
 
     public Studente2() {
+        super();
     }
 
     public Studente2(Integer classe, Boolean isRipetente, Double altezza, String cognome, String nome, Float peso,
@@ -54,23 +55,27 @@ public class Studente2 extends Persona8A {
     }
 
     public ArrayList<Float> getVoti() {
-        return voti;
+        return (ArrayList<Float>) voti.clone();
     }
 
     public void setVoti(ArrayList<Float> voti) throws Exception {
-        this.voti = voti;
-
+        this.voti = (ArrayList<Float>) voti.clone();
     }
 
     public void aggiungiVoto(Float voto) throws Exception {
-        if (voto < 1) {
+        if(voto == null)
+            throw new Exception("il voto non può essere null");
+        if (voto < 3) {
             throw new Exception("Il voto non può essere minore di 1");
         }
 
         if (voto > 10) {
             throw new Exception("Il voto non può essere maggiore di 10");
         }
-
+        
+        if(voto%0.25 != 0)
+            throw new Exception("i decimali dei voti possono essere solo .00 .25 .50 .75");
+        
         voti.add(voto);
     }
 
@@ -115,7 +120,7 @@ public class Studente2 extends Persona8A {
         if (posizione >= voti.size()) {
             throw new Exception("La posizione inserita non deve essere maggiore del numero di voti");
         }
-        voti.remove(posizione);
+        voti.remove((int) posizione);
     }
 
     public void rimuoviVoto(Float voto) throws Exception {
