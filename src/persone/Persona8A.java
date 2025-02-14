@@ -38,6 +38,17 @@ public class Persona8A {
         setPassword(password);
         numeroIstanze++;
     }
+    
+    public Persona8A(Persona8A p) throws Exception {
+        setAltezza(p.altezza);
+        setCognome(p.cognome);
+        setNome(p.nome);
+        setPeso(p.peso);
+        setDataDiNascita(p.dataDiNascita);
+        setEmail(p.email);
+        setPassword(p.password);
+        numeroIstanze++;
+    }
 
     public Double getAltezza() {
         return altezza;
