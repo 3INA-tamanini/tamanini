@@ -198,7 +198,7 @@ public class Studente2 extends Persona8A {
         return s;
     }
 
-    private Float votoMinore() {
+    protected Float votoMinore() {
         if (voti.isEmpty()) {
             return null;
         }
@@ -217,7 +217,7 @@ public class Studente2 extends Persona8A {
         return min;
     }
 
-    private Float votoMaggiore() {
+    protected Float votoMaggiore() {
         if (voti.isEmpty()) {
             return null;
         }
@@ -236,7 +236,7 @@ public class Studente2 extends Persona8A {
         return max;
     }
 
-    private Float mediaVoti() {
+    protected Float mediaVoti() {
         Float media = 0f;
         if (voti == null) {
             media = 0f;
