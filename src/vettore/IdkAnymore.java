@@ -55,7 +55,7 @@ public class IdkAnymore {
     public String toString() {
         String testo = "";
         for (Object pompi1 : pompi) {
-            testo += pompi1;
+            testo += pompi1 + "\n";
         }
         return testo;
     }
