@@ -1,0 +1,24 @@
+body {
+    background-color: white;
+    background-image: url('ride-the-lightning-metallica.gif');
+}
+
+h1 {
+    color: red;
+    font-family: comic sans ms;
+    font-size: 300%;
+}
+
+h2 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 200%;
+}
+
+p {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 100%;
+    border: 5px solid black;
+    padding: 30px;
+}

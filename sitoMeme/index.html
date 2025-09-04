@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <link rel="stylesheet" href="stile.css">
+    <title>
+        Sito Estate
+    </title>
+</head>
+
+<body>
+    <header>
+        <h1>Sito Estate</h1>
+    </header>
+
+    <audio id="onepiece" loop>
+        <source src="whitebeard-the-one-piece-is-real.mp3" type="audio/mp3">
+        Il tuo browser non supporta l'audio.
+    </audio>
+    
+    <audio id="hotdog" loop>
+        <source src="Hot Dog.mp3" type="audio/mp3">
+        Il tuo browser non supporta l'audio.
+    </audio>
+
+    <main>
+        <h2>THE ONE PIECE THE ONE PIECE IS REAL</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="pagina1.html">Pagina 1</a>
+            <a href="pagina2.html">Pagina 2</a>
+            <a href="pagina3.html">Pagina 3</a>
+        </nav>
+
+        <img id="edward" src="Edward_Newgate_render.webp" alt="immagine estate" width="1600" height="600">
+
+        <img id="cholocateStarfishAndTheHotDogFlavoredWater" src="413245.webp" width="20" height=""20">
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const audio = document.getElementById("onepiece");
+            const immagine = document.getElementById("edward");
+
+            immagine.addEventListener("click", () => {
+                audio.play();
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const audio = document.getElementById("hotdog");
+            const immagine = document.getElementById("cholocateStarfishAndTheHotDogFlavoredWater");
+
+            immagine.addEventListener("click", () => {
+                audio.play();
+            });
+        });
+    </script>
+</body>
+
+</html>
