@@ -1,6 +1,6 @@
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background: #f9f9f9;
+    background: #c9c9c9;
     color: #333;
     line-height: 1.6;
     padding: 20px;
@@ -26,7 +26,7 @@ section {
     background: #fff;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -46,7 +46,8 @@ table {
     margin-top: 10px;
 }
 
-table th, table td {
+table th,
+table td {
     border: 1px solid #1a60ab;
     padding: 12px;
     text-align: left;
@@ -80,4 +81,23 @@ ul {
 
 .btn:hover {
     background: #155ab6;
+}
+
+
+.iscritto {
+    color: #155ab6;
+    font-size: 300%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.immagini {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.immagine{
+    width: 470px;
+    height: 348px;
 }
