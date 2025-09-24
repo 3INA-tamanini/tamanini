@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cisco {
+    padding: 20px 0;
+    background-color: black;
+    text-align: center;
+}
+
+.cisco h2 {
+    color: #ff6600;
+    font-size: 50px;
+}
+
+.cisco h3 {
+    font-size: 25px;
+    color: #999999;
+}
+
+.cisco h4 {
+    font-size: 20px;
+    color: white;
+}
+
+.cisco>* {
+    margin-right: 500px;
+    margin-left: 500px;
+    line-height: 100px;
+}
+
+.bottoni .sw .sm {
+    display: flex;
+}
+
+.bottoni .grid {
+    display: flex;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
+
+.bottoni>button {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+}
+
+.container2 {
+    display: flex;
+}
+
+.cisco2 {
+    padding: 20px 0;
+    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2021/02/Depositphotos_282733270_xl-2015.jpg");
+    background-blend-mode: darken;
+    background-repeat:no-repeat;
+    text-align: center;
+
+}
+
+.cisco2 h2 {
+    color: #ff6600;
+    font-size: 50px;
+}
+
+.cisco2 h3 {
+    font-size: 25px;
+    color: #999999;
+}
+
+.cisco2 h4 {
+    font-size: 20px;
+    color: white;
+}
+
+.cisco2>* {
+    margin-right: 500px;
+    margin-left: 500px;
+    line-height: 100px;
+}
