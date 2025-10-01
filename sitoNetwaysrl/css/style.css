@@ -1,92 +1,318 @@
-* {
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Arial';
+    background-image: url(https://www.calcioefinanza.it/wp-content/uploads/2024/07/Logo-Napoli-Instagram-2.webp);
+    background-size: 100% auto;
+}
+
+header {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 150px;
+}
+
+.header {
+    color: white;
+    margin: 15px;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 0px 180px;
+    margin: 10px;
 }
 
-.cisco {
-    padding: 20px 0;
-    background-color: black;
+.immagine {
+    width: 20%;
+}
+
+.menu {
+    font-size: 150%;
+    color: black;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.sezione-testo {
     text-align: center;
+    background-color: black;
+    padding: 60px 550px;
 }
 
-.cisco h2 {
-    color: #ff6600;
+.sezione-testo h1 {
+    color: rgb(240, 102, 10);
     font-size: 50px;
 }
 
-.cisco h3 {
-    font-size: 25px;
-    color: #999999;
+.sezione-testo h3 {
+    color: gray;
+    font-size: 30px;
 }
 
-.cisco h4 {
-    font-size: 20px;
+.sezione-testo h4 {
     color: white;
+    font-size: 20px;
 }
 
-.cisco>* {
-    margin-right: 500px;
-    margin-left: 500px;
-    line-height: 100px;
-}
-
-.bottoni .sw .sm {
-    display: flex;
-}
-
-.bottoni .grid {
-    display: flex;
-    grid-template-columns: auto auto auto;
+.bottoni {
+    justify-content: center;
     padding: 10px;
+    display: grid;
+    grid-template-columns: 460px 460px 460px 460px;
+    grid-template-rows: 176px 176px 176px 176px;
+    gap: 10px;
 }
 
 .bottoni>button {
-    padding: 20px;
+    border: none;
+    border-radius: 2%;
     font-size: 30px;
-    text-align: center;
+    padding-top: 150px;
 }
 
-.container {
+.item1 {
+    grid-row: 1 / span 4;
+    background-color: rgb(243, 242, 242);
+
+    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2018/09/2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+
+    color: rgb(46, 45, 45);
+}
+
+.item2 {
+    grid-row: 1 / span 2;
+    background-color: black;
+
+    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2021/02/8.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+
+    color: rgb(218, 214, 214);
+}
+
+.item3 {
+    grid-row: 3 / span 2;
+    background-color: black;
+    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2021/02/5.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+
+    color: rgb(218, 214, 214);
+}
+
+.item4 {
+    grid-row: 1 / span 2;
+    background-color: rgb(243, 242, 242);
+    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2018/09/9.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+
+    color: rgb(46, 45, 45);
+}
+
+.item5 {
+    grid-row: 3 / span 2;
+    background-color: rgb(243, 242, 242);
+    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2020/01/iconeaserver-1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+
+    color: rgb(46, 45, 45);
+}
+
+.item6 {
+    grid-column: 4;
+    grid-row: 1 / span 4;
+    background-color: black;
+    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2021/02/ok.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+
+    color: rgb(218, 214, 214);
+}
+
+.bottoni1 {
+    justify-content: center;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 285px 285px 285px 285px;
+    grid-template-rows: 350px 350px;
+    gap: 10px;
+
+    background: transparent;
+}
+
+.bottoni1>button {
+    border: none;
+    border-radius: 2%;
+    background-color: rgba(255, 255, 255, 0);
+    background-repeat: no-repeat;
+    background-position: top;
+
+    font-size: 24px;
+}
+
+.item11 {
+    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2018/09/1.png");
+}
+
+.item12 {
+    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2018/09/2.png");
+}
+
+.item13 {
+    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2018/09/4.png");
+}
+
+.item14 {
+    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2018/09/3.png");
+}
+
+.item15 {
+    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2018/09/5.png");
+}
+
+.item16 {
+    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2021/02/11-1.png");
+}
+
+.item17 {
+    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2018/09/7.png");
+}
+
+.item18 {
+    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2021/02/10.png");
+}
+
+.sezione-testo1 {
+    background-blend-mode: color;
+    background-color: rgba(0, 0, 0, 0.575);
+    background-image: url(https://avatars.mds.yandex.net/i?id=d0433bd4996aaf62afd054b60acfcbb55a104bca-12422078-images-thumbs&n=13);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    width: 100%;
+    height: 616px;
+
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.container2 {
-    display: flex;
-}
-
-.cisco2 {
-    padding: 20px 0;
-    background-image: url("https://www.netwaysrl.it/wp-content/uploads/2021/02/Depositphotos_282733270_xl-2015.jpg");
-    background-blend-mode: darken;
-    background-repeat:no-repeat;
-    text-align: center;
-
-}
-
-.cisco2 h2 {
-    color: #ff6600;
+.sezione-testo1 h1 {
+    color: rgb(214, 212, 212);
     font-size: 50px;
 }
 
-.cisco2 h3 {
+.testo1 {
+    color: orange;
+    font-size: 30px;
+}
+
+.testo2 {
+    color: rgb(214, 212, 212);
     font-size: 25px;
-    color: #999999;
 }
 
-.cisco2 h4 {
+.sezione-logo {
+    height: 500px;
+    background-position: 630px 10px;
+    color: #ff7300;
+    font-size: 30px;
+}
+
+.sezione-logo h1 {
+    position: relative;
+    left: 1020px;
+    top: 140px;
+}
+
+.sezione-preventivo {
+    display: grid;
+    grid-template-columns: 800px 800px;
+    grid-template-rows: 753px;
+
+    justify-content: center;
+}
+
+.sezione1 {
+    background-image: url(https://www.calcioefinanza.it/wp-content/uploads/2024/07/Logo-Napoli-Instagram-2.webp);
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    padding: 10px;
+
+    text-align: center;
+}
+
+.testo-preventivo {
+    position: relative;
+    top: 100px;
+}
+
+.sezione1 h1 {
+    color: #333;
+    font-size: 50px;
+    line-height: 90px;
+}
+
+.sezione1 h2 {
+    color: #333;
+    font-size: 29px;
+}
+
+.sezione1 h3 {
+    color: #333;
     font-size: 20px;
-    color: white;
 }
 
-.cisco2>* {
-    margin-right: 500px;
-    margin-left: 500px;
-    line-height: 100px;
+.preventivo {
+    background-color: red;
+    padding: 10px;
+}
+
+footer {
+    background-color: black;
+    color: #5f5d5d;
+
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px;
+    justify-content: space-between;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 50px;
+    padding-bottom: 100px;
+
+    line-height: 30px;
+}
+
+.tipo3 {
+    background-image: url(https://www.netwaysrl.it/wp-content/uploads/2020/01/loghino-1.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    position: relative;
+    right: 80px;
+    top: 50px;
+}
+
+.tipo3 p {
+    text-align: center;
+    position: relative;
+    top: 100px;
+
+    font-size: 20px;
+    color: #999696;
 }

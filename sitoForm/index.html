@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+
+    <form action="#">
+        <table>
+            <tr>
+                <td>
+
+                    <input type="text" name="username" id="1" placeholder="username" maxlength="20">
+                </td>
+                <td>
+                    <input type="password" name="password" id="2" placeholder="password" minlength="8" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="date" name="dataDiNascita" id="3" placeholder="data di nascita">
+                </td>
+                <td>
+                    <div>
+                        <legend for="genere">genere</legend>
+                        <input type="radio" name="genere" id="genere">
+                        <label for="genere">uomo</label>
+
+                        <input type="radio" name="genere" id="genere">
+                        <label for="genere">donna</label>
+
+                        <input type="radio" name="genere" id="genere">
+                        <label for="genere">altro</label>
+
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <legend>lingue conosciute<br></legend>
+                        <input type="checkbox" name="lingue" id="lingue">
+                        <label for="lingue">italiano<br></label>
+                        <input type="checkbox" name="lingue" id="lingue">
+                        <label for="lingue">inglese <br></label>
+                        <input type="checkbox" name="lingue" id="lingue">
+                        <label for="lingue">giapponese <br></label>
+                        <input type="checkbox" name="lingue" id="lingue">
+                        <label for="lingue">belgio <br></label>
+                    </div>
+                </td>
+                <td>
+                    <input type="email" name="email" id="email" placeholder="email" required>
+                    <label for="colore"><br>colore preferito</label>
+                    <input type="color" name="colore" id="colore">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="notePersonali"><br><br>note personali</label>
+                    <textarea name="notePersonali:" id="notePersonali" cols="40" rows="5"></textarea>
+                </td>
+                <td><a href="https://en.wikipedia.org/wiki/Australasian_swamphen">pukeko</a></td>
+            </tr>
+        </table>
+
+        <input type="submit" name="invio" id="invio" value="invia">
+        <input type="reset" name="reset" id="reset">
+
+
+
+
+
+
+
+
+
+    </form>
+</body>
+
+</html>
