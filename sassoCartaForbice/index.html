@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>scf</title>
-    <script defer src="script.js"></script>
-
-    <style>
-        img{
-            display: flex;
-            width: 300px;
-            height: 300px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
 </head>
-
 <body>
-    <button id="sasso"><img
-            src="https://static.jojowiki.com/images/thumb/8/80/latest/20191015215735/Rolling_Stones_ref.png/336px-Rolling_Stones_ref.png"
-            alt="sasso"></button>
-    <button id="carta"><img src="https://eforms.com/images/2018/03/Employment-Job-Application-791x1024.png" alt="carta"></button>
-    <button id="forbice"><img src="https://media.gettyimages.com/id/175601846/it/foto/forbici-aperto.jpg?s=612x612&w=gi&k=20&c=IqQMfRxSgod3eMAJ-KYsAGNuH_5am9Jrd1qniHlJnNw=" alt="forbice"></button>
+    <div class="contenitore">
+        <img src="images/sasso.png" alt="sasso" id="sasso">
+        <img src="images/carta.png" alt="carta" id="carta">
+        <img src="images/forbice.png" alt="forbice" id="forbice">
+    </div>
+    <br><br>    
+    <div class="contenitore">
+        <button id="sfida">Sfida!</button>
+    </div>
+    <br><br><br>
+    <div class="contenitore">
+        <div id="messaggio"></div>
+    </div>
+    
+    <script src="js/script.js"></script>
 </body>
-
 </html>
