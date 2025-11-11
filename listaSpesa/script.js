@@ -8,13 +8,16 @@ elimina = document.querySelector("#elimina");
 svuota.addEventListener("click", svuotaEl);
 elimina.addEventListener("click", elimEl);
 
-function elimEl(){
-    const temp = document.querySelectorAll("");
-    temp.remove;
+function elimEl() {
+    const temp = document.querySelectorAll(".comprato");
+
+    temp.forEach((element) => {
+        element.remove();
+    });
 }
 
-function svuotaEl(){
-    lista.remove;
+function svuotaEl() {
+    lista.innerHTML = "";
 }
 function invia() {
     event.preventDefault();
@@ -35,10 +38,10 @@ function invia() {
         });
 
         nuovo.appendChild(rimuovi);
-        rimuovi.addEventListener("click", ()=>{
+        rimuovi.addEventListener("click", () => {
             nuovo.remove();
         });
-        
+
         lista.appendChild(nuovo);
     } else {
         alert("inserire un elemento");
